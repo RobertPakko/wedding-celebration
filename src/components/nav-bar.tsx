@@ -5,7 +5,7 @@ import { Icon, ICON } from "./icon"
 
 export const NavBar: Component = () => {
   return (
-      <div class={twd(["navbar"], ["absolute", "top-0"])}>
+      <div class={twd(["navbar"], ["absolute", "top-0", "z-10"])}>
         <div class={tw(["flex-none"])}>
           <label for={drawerId} class={twd(["btn", "btn-square", "btn-ghost", "bg-base-100"])}>
             <Icon icon={ICON.ThreeBars}/>
