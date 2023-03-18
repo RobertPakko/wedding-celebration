@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "daisyui": "^2.51.4",
-    "solid-js": "^1.6.10"
+    "solid-js": "^1.6.10",
+    "tailwindest": "^1.0.4"
   }
 }
