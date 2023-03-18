@@ -1,3 +1,4 @@
+import { drawerId } from "../App"
 import { twd, tw } from "../styles"
 import { Icon, ICON } from "./icon"
 
@@ -5,7 +6,7 @@ export const NavBar = () => {
   return (
     <div class={twd(["navbar", "bg-base-100"])}>
       <div class={tw(["flex-none"])}>
-        <label htmlFor="my-drawer" class={twd(["btn", "btn-square", "btn-ghost"])}>
+        <label for={drawerId} class={twd(["btn", "btn-square", "btn-ghost"])}>
           <Icon icon={ICON.ThreeBars}/>
         </label>
       </div>
