@@ -1,4 +1,4 @@
-import { mergeProps } from "solid-js";
+import { Component, mergeProps } from "solid-js";
 import { tw } from "../styles";
 
 export enum ICON {
@@ -23,7 +23,7 @@ export interface IconProps {
   class?: string;
 }
 
-export const Icon = (initProps: IconProps) => {
+export const Icon: Component<IconProps> = (initProps: IconProps) => {
   const props = mergeProps({ class: tw(["inline-block", "w-5", "h-5", "stroke-current"]) }, initProps);
 
   return (
