@@ -1,17 +1,24 @@
-import { drawerId } from "../App";
+import { Component } from "solid-js";
+import { AttendeesRef, drawerId, HomeRef } from "../App";
 import { Icon, ICON } from "./icon";
 
-export const NavPanel = () => {
+export const NavPanel: Component = () => {
+  const getStyle = (ref: string): string => {
+    return ref === window.location.pathname ? "bordered disabled" : "";
+  }
+
   return (
     <>
       <label for={drawerId} class="drawer-overlay"></label>
-      <ul class="menu p-4 w-80 bg-base-100 text-base-content">
-        <li><a><Icon icon={ICON.Home}/>Home</a></li>
+      <ul class="menu w-80 bg-base-100 text-base-content">
+        <li class={getStyle(HomeRef)}><a href={HomeRef}><Icon icon={ICON.Home}/>Home</a></li>
+        <li class={getStyle(AttendeesRef)}><a href={AttendeesRef}><Icon icon={ICON.UserGroup}/>Attendees</a></li>
         <li><a><Icon icon={ICON.ClipboardCheck}/>RSVP</a></li>
-        <li><a><Icon icon={ICON.ClipboardCheck}/>Travel & Lodging</a></li>
-        <li><a><Icon icon={ICON.Globe}/>Things To Do</a></li>
-        <li><a><Icon icon={ICON.Gift}/>FAQ</a></li>
+        <li><a><Icon icon={ICON.OfficeBuilding}/>Travel & Lodging</a></li>
+        <li><a><Icon icon={ICON.Sparkles}/>Things To Do</a></li>
+        <li><a><Icon icon={ICON.ChatBubble}/>FAQ</a></li>
         <li><a><Icon icon={ICON.Gift}/>Registry</a></li>
+        <li><a><Icon icon={ICON.Photo}/>Photo Upload</a></li>
       </ul>
     </>
   );

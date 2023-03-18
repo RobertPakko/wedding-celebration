@@ -1,10 +1,15 @@
-import type { Component } from 'solid-js';
-import { ICON, Icon } from './components/icon';
+import { Routes, Route } from '@solidjs/router';
+import { Component, lazy } from 'solid-js';
 import { NavBar } from './components/nav-bar';
 import { NavPanel } from './components/nav-panel';
-import { tw, twd } from './styles';
 
 export const drawerId = "my-drawer";
+
+const Home = lazy(() => import("./pages/home"));
+export const HomeRef = "/";
+
+const Attendees = lazy(() => import("./pages/attendees"));
+export const AttendeesRef = "/attendees"
 
 const App: Component = () => {
   return (
@@ -12,6 +17,10 @@ const App: Component = () => {
     <input id={drawerId} type="checkbox" class="drawer-toggle" />
     <div class="drawer-content">
       <NavBar/>
+      <Routes>
+        <Route path={HomeRef} component={Home} />
+        <Route path={AttendeesRef} component={Attendees} />
+      </Routes>
     </div>
     <div class="drawer-side">
       <NavPanel/>

@@ -1,8 +1,9 @@
+import { Component } from "solid-js"
 import { drawerId } from "../App"
 import { twd, tw } from "../styles"
 import { Icon, ICON } from "./icon"
 
-export const NavBar = () => {
+export const NavBar: Component = () => {
   return (
     <div class={twd(["navbar", "bg-base-100"])}>
       <div class={tw(["flex-none"])}>
@@ -15,7 +16,7 @@ export const NavBar = () => {
       </div>
       <div class={tw(["flex-none"])}>
         <button class={twd(["btn", "btn-square", "btn-ghost"])}>
-          <Icon icon={ICON.CircleStack}/>
+          <Icon icon={ICON.DiamondStack}/>
         </button>
       </div>
     </div>
