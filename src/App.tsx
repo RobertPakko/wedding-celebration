@@ -1,21 +1,20 @@
 import type { Component } from 'solid-js';
 import { ICON, Icon } from './components/icon';
+import { NavBar } from './components/nav-bar';
+import { NavPanel } from './components/nav-panel';
+import { tw, twd } from './styles';
+
+export const drawerId = "my-drawer";
 
 const App: Component = () => {
   return (
-  <div class="navbar bg-base-100">
-    <div class="flex-none">
-      <button class="btn btn-square btn-ghost">
-        <Icon icon={ICON.ThreeBars}/>
-      </button>
+  <div class="drawer">
+    <input id={drawerId} type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content">
+      <NavBar/>
     </div>
-    <div class="flex-1">
-      <a class="btn btn-ghost normal-case text-xl">Robert and Haley Wedding Celebration</a>
-    </div>
-    <div class="flex-none">
-      <button class="btn btn-square btn-ghost">
-        <Icon icon={ICON.CircleStack}/>
-      </button>
+    <div class="drawer-side">
+      <NavPanel/>
     </div>
   </div>
   );
