@@ -1,5 +1,5 @@
 import { Component } from "solid-js";
-import { AttendeesRef, drawerId, HomeRef } from "../App";
+import { AttendeesRef, drawerId, HomeRef, RSVPRef } from "../App";
 import { Icon, ICON } from "./icon";
 
 export const NavPanel: Component = () => {
@@ -18,8 +18,8 @@ export const NavPanel: Component = () => {
       <label for={drawerId} class="drawer-overlay"></label>
       <ul class="menu w-80 bg-base-100 text-base-content">
         <li class={getStyle(HomeRef)}><a {...getRef(HomeRef)}><Icon icon={ICON.Home}/>Home</a></li>
-        <li><a><Icon icon={ICON.ClipboardCheck}/>RSVP</a></li>
-        <li class={getStyle(AttendeesRef)}><a {...getRef(AttendeesRef)}><Icon icon={ICON.UserGroup}/>Attendees</a></li>
+        <li class={getStyle(AttendeesRef)}><a {...getRef(AttendeesRef)}><Icon icon={ICON.ClipboardCheck}/>RSVP</a></li>
+        <li class={getStyle(RSVPRef)}><a {...getRef(RSVPRef)}><Icon icon={ICON.UserGroup}/>Attendees</a></li>
         <li><a><Icon icon={ICON.OfficeBuilding}/>Travel & Lodging</a></li>
         <li><a><Icon icon={ICON.Sparkles}/>Things To Do</a></li>
         <li><a><Icon icon={ICON.ChatBubble}/>FAQ</a></li>
