@@ -1,13 +1,16 @@
 import { createSignal, For, Show } from "solid-js";
 
+type CardColor = "" | "Primary" | "Secondary" | "Accent" | "Neutral" | "Base";
+type DietaryRestriction = "None" | "Vegetarian" | "Vegan" | "GlutenFree" | "Other";
+
 interface RSVP {
   imageUrl: string
   firstName: string
   lastName: string
   blurb: string
   email: string
-  cardColor: "" | "red" | "orange" | "yellow" | "lime" | "green"
-  dietaryRestriction: "" | "None" | "Vegetarian" | "Vegan" | "GlutenFree" | "Other"
+  cardColor: CardColor
+  dietaryRestriction: DietaryRestriction
   dietaryRestrictionOther: string
   addToAttendees: boolean
 }
@@ -20,9 +23,9 @@ export default function RSVP() {
     email: "",
     imageUrl: "",
     cardColor: "",
-    dietaryRestriction: "",
+    dietaryRestriction: "None",
     dietaryRestrictionOther: "",
-    addToAttendees: false
+    addToAttendees: true
   });
 
   const updateFormField = (fieldName: keyof RSVP) => (event: Event) => {
@@ -32,6 +35,39 @@ export default function RSVP() {
       [fieldName]: inputElement.value
     });
   };
+
+  const updateCheckbox = (fieldName: keyof RSVP) => () => {
+    setData({
+      ...data(),
+      [fieldName]: !data()[fieldName]
+    });
+  }
+
+  const updateDietaryRestriction = (selection: DietaryRestriction) => () => {
+    setData({
+      ...data(),
+      dietaryRestriction: selection
+    });
+  }
+
+  const updateCardColor = (selection: CardColor) => () => {
+    console.log(getButtonStyle("Accent", "btn-accent"));
+
+    setData({
+      ...data(),
+      cardColor: selection
+    });
+  }
+
+  const getButtonStyle = (type: CardColor, inputClass: string): string => {
+    const base = "self-center btn ";
+
+    if(data().cardColor === type || data().cardColor === "") {
+      return base + "mask mask-heart " + inputClass;
+    } else {
+      return base + "btn-xs btn-circle " + inputClass;
+    }
+  }
 
   return (
     <div class="w-full min-h-full bg-secondary bg-opacity-40">
@@ -47,52 +83,54 @@ export default function RSVP() {
         <div class="flex-none form-control">
           <div class="flex flex-wrap justify-between">
             <div class="dropdown dropdown-hover">
-              <label tabindex="0" class="btn m-1">{data().dietaryRestriction === "" ? "Dietary Restriction" : data().dietaryRestriction}</label>
+              <label tabindex="0" class="btn m-1">{"Dietary Restriction: " + data().dietaryRestriction}</label>
               <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                <li><a>None</a></li>
-                <li><a>Vegetarian</a></li>
-                <li><a>Vegan</a></li>
-                <li><a>Gluten-Free</a></li>
-                <li><a>Other</a></li>
+                <li><a onClick={updateDietaryRestriction("None")}>None</a></li>
+                <li><a onClick={updateDietaryRestriction("Vegetarian")}>Vegetarian</a></li>
+                <li><a onClick={updateDietaryRestriction("Vegan")}>Vegan</a></li>
+                <li><a onClick={updateDietaryRestriction("GlutenFree")}>Gluten-Free</a></li>
+                <li><a onClick={updateDietaryRestriction("Other")}>Other</a></li>
               </ul>
             </div>
             <Show when={data().dietaryRestriction === "Other"}>
-              <input type="text" placeholder="Specify dietary restriction" class="m-5 input input-bordered w-full max-w-xs" value={data().dietaryRestrictionOther} onChange={updateFormField("dietaryRestrictionOther")} />
+              <input type="text" placeholder="Please specify" class="input input-bordered w-full max-w-[200px]" value={data().dietaryRestrictionOther} onChange={updateFormField("dietaryRestrictionOther")} />
             </Show>
             <div class="flex-none">
               <label class="label cursor-pointer">
                 <span class="label-text font-bold text-xl mr-5">Add me to the public attendees list (recommended!)</span>
-                <input type="checkbox" class="checkbox checkbox-primary checkbox-lg" checked={data().addToAttendees} onChange={updateFormField("addToAttendees")} />
+                <input type="checkbox" class="checkbox checkbox-primary checkbox-lg" checked={data().addToAttendees} onClick={updateCheckbox("addToAttendees")} />
               </label>
             </div>
           </div>
         </div>
         <Show when={data().addToAttendees}>
-          <div class="divider" />
-          <div class="flex justify-around bg-base-300 rounded-box p-8">
-            <div class="flex flex-col">
-              <div>
-                <label class="label">
-                  <span class="label-text text-lg text-bold">Select a color for your card on the attendees page</span>
-                </label>
-                <div class="rating gap-1">
-                  <input type="radio" name="rating-3" class="mask mask-heart bg-red-400" />
-                  <input type="radio" name="rating-3" class="mask mask-heart bg-orange-400" />
-                  <input type="radio" name="rating-3" class="mask mask-heart bg-yellow-400" />
-                  <input type="radio" name="rating-3" class="mask mask-heart bg-lime-400" />
-                  <input type="radio" name="rating-3" class="mask mask-heart bg-green-400" />
+          <div>
+            <div class="divider" />
+            <div class="flex justify-around bg-base-300 rounded-box p-8">
+              <div class="flex flex-col gap-3">
+                <div>
+                  <label class="label">
+                    <span class="label-text text-lg font-bold">Select a color for your card on the attendees page</span>
+                  </label>
+                  <div class="flex justify-around bg-base-100 rounded-box p-3">
+                    <button onClick={updateCardColor("Primary")} class={getButtonStyle("Primary", "btn-primary")} />
+                    <button onClick={updateCardColor("Secondary")} class={getButtonStyle("Secondary", "btn-secondary")} />
+                    <button onClick={updateCardColor("Accent")} class={getButtonStyle("Accent", "btn-accent")} />
+                    <button onClick={updateCardColor("Neutral")} class={getButtonStyle("Neutral", "bg-neutral")} />
+                    <button onClick={updateCardColor("Base")} class={getButtonStyle("Base", "btn-active btn-ghost")} />
+                  </div>
+                </div>
+                <div>
+                  <label class="label">
+                    <span class="label-text text-lg font-bold">Upload a photo of yourself for the attendees page</span>
+                  </label>
+                  <input type="file" class="file-input file-input-primary file-input-lg w-full max-w-xs" />
                 </div>
               </div>
-              <div>
-                <label class="label">
-                  <span class="label-text text-lg text-bold">Upload a photo of yourself for the attendees page</span>
-                </label>
-                <input type="file" class="file-input file-input-primary file-input-lg w-full max-w-xs" />
-              </div>
+              <textarea class="flex-1 mx-5 textarea textarea-bordered text-lg" placeholder="Tell us how you know Rob & Haley!" value={data().blurb} onChange={updateFormField("blurb")}/>
             </div>
-            <textarea class="flex-1 mx-5 textarea textarea-bordered text-lg" placeholder="Tell us how you know Rob & Haley!"></textarea>
+            <div class="divider" />
           </div>
-          <div class="divider" />
         </Show>
         <div class="flex-none">
           <button class="btn btn-primary btn-lg btn-wide">SUBMIT</button>
