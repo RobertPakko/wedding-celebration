@@ -1,4 +1,5 @@
-import { createSignal, For, Show } from "solid-js";
+import { AzureSASCredential, TableClient, TableEntity } from "@azure/data-tables";
+import { createSignal, Show } from "solid-js";
 
 type CardColor = "" | "Primary" | "Secondary" | "Accent" | "Neutral" | "Base";
 type DietaryRestriction = "None" | "Vegetarian" | "Vegan" | "GlutenFree" | "Other";
@@ -15,7 +16,19 @@ interface RSVP {
   addToAttendees: boolean
 }
 
+const account = "rhweddingstorage";
+const sasToken = "";
+const tableName = "rsvp";
+const partitionKey = tableName;
+
 export default function RSVP() {
+  const client = new TableClient(
+    `https://${account}.table.core.windows.net`,
+    tableName,
+    new AzureSASCredential(sasToken)
+  );
+
+
   const [data, setData] = createSignal<RSVP>({
     firstName: "",
     lastName: "",
@@ -27,6 +40,20 @@ export default function RSVP() {
     dietaryRestrictionOther: "",
     addToAttendees: true
   });
+
+  const uploadData = (): void => {
+    const marker: TableEntity = {
+      partitionKey,
+      rowKey: "3",
+      name: "Markers3",
+      price: 5.0,
+      quantity: 34
+    };
+
+    client.createEntity(marker).then((): void => {
+      console.log("Successfully created");
+    });
+  }
 
   const updateFormField = (fieldName: keyof RSVP) => (event: Event) => {
     const inputElement = event.currentTarget as HTMLInputElement;
@@ -133,7 +160,7 @@ export default function RSVP() {
           </div>
         </Show>
         <div class="flex-none">
-          <button class="btn btn-primary btn-lg btn-wide">SUBMIT</button>
+          <button class="btn btn-primary btn-lg btn-wide" onClick={uploadData}>SUBMIT</button>
         </div>
       </div>
     </div>
