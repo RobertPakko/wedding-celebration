@@ -2,6 +2,7 @@ import { AzureSASCredential, TableClient, TableEntity } from "@azure/data-tables
 import { BlobServiceClient, newPipeline } from "@azure/storage-blob";
 import { createSignal, Show } from "solid-js";
 import { Person } from "./attendees";
+import { ImageTools } from "../services/image-tools";
 
 export type CardColor = "" | "Primary" | "Secondary" | "Accent" | "Neutral" | "Base";
 type DietaryRestriction = "None" | "Vegetarian" | "Vegan" | "GlutenFree" | "Other";
@@ -59,7 +60,7 @@ export default function RSVP() {
 
     const rsvp: TableEntity = {
       partitionKey,
-      rowKey: (Number.MAX_VALUE - new Date().getTime()).toString(),
+      rowKey: (Number.MAX_SAFE_INTEGER - new Date().getTime()).toString(),
       ... data()
     };
 
@@ -100,24 +101,31 @@ export default function RSVP() {
     });
   }
 
-  const updateImage = (e: Event): void => {
+  const updateImage = async (e: Event): Promise<void> => {
     setIsLoading(true);
     const target = e.target as HTMLInputElement;
 
-    if(target.files && target.files.length > 0) {
-      const file = target.files[0];
+    if(!target.files || target.files.length === 0) return;
 
-      const blobName = file.name;
-      const blockBlobClient = containerClient.getBlockBlobClient(blobName);
-      blockBlobClient.uploadData(file).then((res): void => {
-        setData({
-          ...data(),
-          "imageUrl": blockBlobClient.url
-        })
-      }).finally((): void => {
-        setIsLoading(false);
-      });
-    };
+    const file = target.files[0];
+
+    ImageTools.resize(file, {width: 300, height: 300}, (blob: File, success: boolean) => {
+      if(success) {
+        const blobName = `${file.name} - ${new Date().getTime().toString()}`;
+        const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+        blockBlobClient.uploadData(blob).then((res): void => {
+          setData({
+            ...data(),
+            "imageUrl": blockBlobClient.url
+          })
+        }).finally((): void => {
+          setIsLoading(false);
+        });
+      } else {
+        console.log("Image failed to resize");
+        //TODO: do something about this
+      }
+    })
   }
 
   const getButtonStyle = (type: CardColor, inputClass: string): string => {
