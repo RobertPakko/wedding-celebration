@@ -1,10 +1,11 @@
 import { AzureSASCredential, TableClient, TableEntity } from "@azure/data-tables";
 import { createSignal, Show } from "solid-js";
+import { Person } from "./attendees";
 
-type CardColor = "" | "Primary" | "Secondary" | "Accent" | "Neutral" | "Base";
+export type CardColor = "" | "Primary" | "Secondary" | "Accent" | "Neutral" | "Base";
 type DietaryRestriction = "None" | "Vegetarian" | "Vegan" | "GlutenFree" | "Other";
 
-interface RSVP {
+interface RSVP extends Person {
   imageUrl: string
   firstName: string
   lastName: string
@@ -16,10 +17,22 @@ interface RSVP {
   addToAttendees: boolean
 }
 
-const account = "rhweddingstorage";
-const sasToken = "";
-const tableName = "rsvp";
-const partitionKey = tableName;
+const account = import.meta.env.VITE_STORAGE_ACCOUNT;
+const sasToken = import.meta.env.VITE_SAS_TOKEN;
+const tableName = import.meta.env.VITE_TABLE_NAME;
+const partitionKey = import.meta.env.VITE_PARTITION_KEY;
+
+const defaultRsvpData: RSVP = {
+  firstName: "",
+  lastName: "",
+  blurb: "",
+  email: "",
+  imageUrl: "",
+  cardColor: "",
+  dietaryRestriction: "None",
+  dietaryRestrictionOther: "",
+  addToAttendees: true
+};
 
 export default function RSVP() {
   const client = new TableClient(
@@ -28,30 +41,24 @@ export default function RSVP() {
     new AzureSASCredential(sasToken)
   );
 
+  const [isLoading, setIsLoading] = createSignal(false);
 
-  const [data, setData] = createSignal<RSVP>({
-    firstName: "",
-    lastName: "",
-    blurb: "",
-    email: "",
-    imageUrl: "",
-    cardColor: "",
-    dietaryRestriction: "None",
-    dietaryRestrictionOther: "",
-    addToAttendees: true
-  });
+  const [data, setData] = createSignal<RSVP>(defaultRsvpData);
 
   const uploadData = (): void => {
-    const marker: TableEntity = {
+    setIsLoading(true);
+
+    const rsvp: TableEntity = {
       partitionKey,
-      rowKey: "3",
-      name: "Markers3",
-      price: 5.0,
-      quantity: 34
+      rowKey: data().email + self.crypto.randomUUID(),
+      ... data()
     };
 
-    client.createEntity(marker).then((): void => {
+    client.createEntity(rsvp).then((): void => {
+      setData(defaultRsvpData);
       console.log("Successfully created");
+    }).finally((): void => {
+      setIsLoading(false);
     });
   }
 
@@ -78,8 +85,6 @@ export default function RSVP() {
   }
 
   const updateCardColor = (selection: CardColor) => () => {
-    console.log(getButtonStyle("Accent", "btn-accent"));
-
     setData({
       ...data(),
       cardColor: selection
@@ -160,7 +165,7 @@ export default function RSVP() {
           </div>
         </Show>
         <div class="flex-none">
-          <button class="btn btn-primary btn-lg btn-wide" onClick={uploadData}>SUBMIT</button>
+          <button class={"btn btn-primary btn-lg btn-wide" + (isLoading() ? " btn-disabled" : "")} onClick={uploadData}>SUBMIT</button>
         </div>
       </div>
     </div>
