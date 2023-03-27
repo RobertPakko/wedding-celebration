@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@azure/data-tables": "^13.2.1",
+    "@azure/storage-blob": "^12.13.0",
     "@solidjs/router": "^0.8.0",
     "daisyui": "^2.51.4",
     "solid-js": "^1.6.10"

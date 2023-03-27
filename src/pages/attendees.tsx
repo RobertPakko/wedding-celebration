@@ -15,7 +15,7 @@ export interface Person {
 }
 
 export default function Attendees() {
-  const client = new TableClient(
+  const tableClient = new TableClient(
     `https://${account}.table.core.windows.net`,
     tableName,
     new AzureSASCredential(sasToken)
@@ -24,9 +24,9 @@ export default function Attendees() {
   const [people, setPeople] = createSignal<Person[]>([]);
 
   onMount(async () => {
-    const attendees = client.listEntities({
+    const attendees = tableClient.listEntities({
       queryOptions: {
-        select: ["firstName", "lastName", "blurb", "cardColor"],
+        select: ["firstName", "lastName", "blurb", "cardColor", "imageUrl"],
         filter: "addToAttendees eq true"
       }
     });
@@ -36,7 +36,6 @@ export default function Attendees() {
       tempArr.push(person as unknown as Person);
     }
 
-    console.log(tempArr);
     setPeople(tempArr);
   });
 

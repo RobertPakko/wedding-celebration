@@ -1,4 +1,5 @@
 import { AzureSASCredential, TableClient, TableEntity } from "@azure/data-tables";
+import { BlobServiceClient, newPipeline } from "@azure/storage-blob";
 import { createSignal, Show } from "solid-js";
 import { Person } from "./attendees";
 
@@ -21,6 +22,7 @@ const account = import.meta.env.VITE_STORAGE_ACCOUNT;
 const sasToken = import.meta.env.VITE_SAS_TOKEN;
 const tableName = import.meta.env.VITE_TABLE_NAME;
 const partitionKey = import.meta.env.VITE_PARTITION_KEY;
+const blobContainer = import.meta.env.VITE_BLOB_CONTAINER;
 
 const defaultRsvpData: RSVP = {
   firstName: "",
@@ -35,11 +37,18 @@ const defaultRsvpData: RSVP = {
 };
 
 export default function RSVP() {
-  const client = new TableClient(
+  const tableClient = new TableClient(
     `https://${account}.table.core.windows.net`,
     tableName,
     new AzureSASCredential(sasToken)
   );
+
+  const blobClient = new BlobServiceClient(
+    `https://${account}.blob.core.windows.net${sasToken}`,
+    newPipeline()
+  );
+
+  const containerClient = blobClient.getContainerClient(blobContainer);
 
   const [isLoading, setIsLoading] = createSignal(false);
 
@@ -50,11 +59,11 @@ export default function RSVP() {
 
     const rsvp: TableEntity = {
       partitionKey,
-      rowKey: data().email + self.crypto.randomUUID(),
+      rowKey: (Number.MAX_VALUE - new Date().getTime()).toString(),
       ... data()
     };
 
-    client.createEntity(rsvp).then((): void => {
+    tableClient.createEntity(rsvp).then((): void => {
       setData(defaultRsvpData);
       console.log("Successfully created");
     }).finally((): void => {
@@ -89,6 +98,26 @@ export default function RSVP() {
       ...data(),
       cardColor: selection
     });
+  }
+
+  const updateImage = (e: Event): void => {
+    setIsLoading(true);
+    const target = e.target as HTMLInputElement;
+
+    if(target.files && target.files.length > 0) {
+      const file = target.files[0];
+
+      const blobName = file.name;
+      const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+      blockBlobClient.uploadData(file).then((res): void => {
+        setData({
+          ...data(),
+          "imageUrl": blockBlobClient.url
+        })
+      }).finally((): void => {
+        setIsLoading(false);
+      });
+    };
   }
 
   const getButtonStyle = (type: CardColor, inputClass: string): string => {
@@ -156,7 +185,12 @@ export default function RSVP() {
                   <label class="label">
                     <span class="label-text text-lg font-bold">Upload a photo of yourself for the attendees page</span>
                   </label>
-                  <input type="file" class="file-input file-input-primary file-input-lg w-full max-w-xs" />
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={updateImage}
+                    class="file-input file-input-primary file-input-lg w-full max-w-xs"
+                  />
                 </div>
               </div>
               <textarea class="flex-1 mx-5 textarea textarea-bordered text-lg" placeholder="Tell us how you know Rob & Haley!" value={data().blurb} onChange={updateFormField("blurb")}/>
