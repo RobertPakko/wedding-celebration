@@ -1,3 +1,6 @@
+// Credit to David Collien and Sean Perkins for creating the below utility code
+// https://gist.github.com/dcollien/312bce1270a5f511bf4a#file-imagetools-es6-L151
+
 const hasBlobConstructor = typeof (Blob) !== 'undefined' && (function () {
     try {
         return Boolean(new Blob());
