@@ -9,9 +9,4 @@ export default defineConfig({
   build: {
     target: 'esnext',
   },
-  resolve: {
-    alias: {
-      './runtimeConfig': './runtimeConfig.browser',
-    },
-  }
 });
