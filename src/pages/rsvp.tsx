@@ -60,7 +60,7 @@ export default function RSVP() {
 
     const rsvp: TableEntity = {
       partitionKey,
-      rowKey: (Number.MAX_SAFE_INTEGER - new Date().getTime()).toString(),
+      rowKey: new Date().getTime().toString(),
       ... data()
     };
 
