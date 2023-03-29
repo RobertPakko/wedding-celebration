@@ -8,7 +8,7 @@ export type CardColor = "" | "Primary" | "Secondary" | "Accent" | "Neutral" | "B
 type DietaryRestriction = "None" | "Vegetarian" | "Vegan" | "GlutenFree" | "Other";
 
 interface RSVP extends Person {
-  imageUrl: string
+  imageRef: string
   firstName: string
   lastName: string
   blurb: string
@@ -30,7 +30,7 @@ const defaultRsvpData: RSVP = {
   lastName: "",
   blurb: "",
   email: "",
-  imageUrl: "",
+  imageRef: "",
   cardColor: "",
   dietaryRestriction: "None",
   dietaryRestrictionOther: "",
@@ -116,7 +116,7 @@ export default function RSVP() {
         blockBlobClient.uploadData(blob).then((res): void => {
           setData({
             ...data(),
-            "imageUrl": blockBlobClient.url
+            "imageRef": blobName
           })
         }).finally((): void => {
           setIsLoading(false);

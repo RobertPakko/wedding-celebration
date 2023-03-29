@@ -5,9 +5,10 @@ import { CardColor } from "./rsvp";
 const account = import.meta.env.VITE_STORAGE_ACCOUNT;
 const sasToken = import.meta.env.VITE_SAS_TOKEN;
 const tableName = import.meta.env.VITE_TABLE_NAME;
+const blobContainer = import.meta.env.VITE_BLOB_CONTAINER;
 
 export interface Person {
-  imageUrl: string
+  imageRef: string
   firstName: string
   cardColor: CardColor
   lastName: string
@@ -26,7 +27,7 @@ export default function Attendees() {
   onMount(async () => {
     const attendees = tableClient.listEntities({
       queryOptions: {
-        select: ["firstName", "lastName", "blurb", "cardColor", "imageUrl"],
+        select: ["firstName", "lastName", "blurb", "cardColor", "imageRef"],
         filter: "addToAttendees eq true"
       }
     });
@@ -54,7 +55,7 @@ export default function Attendees() {
       <For each={people()}>{(person) =>
         <div class={"card mx-5 w-[200px] shadow-xl " + getButtonStyle(person.cardColor)}>
           <figure class="px-[20px] pt-[20px] h-[180px]">
-            <img class="rounded-xl" src={person.imageUrl} alt={"Picture of " + person.firstName + " " + person.lastName} />
+            <img class="rounded-xl" src={`https://${account}.blob.core.windows.net/${blobContainer}/${person.imageRef + sasToken}`} alt={"Picture of " + person.firstName + " " + person.lastName} />
           </figure>
           <div class="card-body p-5">
             <h2 class="text-sm card-title">{person.firstName + " " + person.lastName}</h2>
