@@ -1,8 +1,3 @@
-export interface DaisyComponent<T> {
-    name: string,
-    modifiers: {[K in keyof T]: string},
-}
-
 type DaisyColorPrefixes = "bg" | "text";
 type DaisyColors = "primary"
     | "primary-focus"
@@ -33,7 +28,13 @@ type DaisyColorType = `${DaisyColorPrefixes}-${DaisyColors}`;
 
 export const daisyColor = (color: DaisyColorType, addedClasses: string = ""): string => `${color} ${addedClasses}`;
 
+export interface DaisyComponent<T> {
+  name: string,
+  modifiers: {[K in keyof T]: string},
+}
+
 // Creates a space seperated string with component names, component modifiers, and additional class string if desired
 export function daisy<T>(component: DaisyComponent<T>, modifiers: (keyof T)[] = [], addedClass: string = ""): string {
     return [component.name].concat(modifiers.map(x => component.modifiers[x])).join(" ") + ` ${addedClass}`;
 };
+

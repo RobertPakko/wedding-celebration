@@ -61,7 +61,7 @@ export default function RSVP() {
     const rsvp: TableEntity = {
       partitionKey,
       rowKey: new Date().getTime().toString(),
-      ... data()
+      ...data()
     };
 
     tableClient.createEntity(rsvp).then((): void => {
@@ -105,12 +105,12 @@ export default function RSVP() {
     setIsLoading(true);
     const target = e.target as HTMLInputElement;
 
-    if(!target.files || target.files.length === 0) return;
+    if (!target.files || target.files.length === 0) return;
 
     const file = target.files[0];
 
-    ImageTools.resize(file, {width: 300, height: 300}, (blob: File, success: boolean) => {
-      if(success) {
+    ImageTools.resize(file, { width: 300, height: 300 }, (blob: File, success: boolean) => {
+      if (success) {
         const blobName = `${file.name} - ${new Date().getTime().toString()}`;
         const blockBlobClient = containerClient.getBlockBlobClient(blobName);
         blockBlobClient.uploadData(blob).then((res): void => {
@@ -131,7 +131,7 @@ export default function RSVP() {
   const getButtonStyle = (type: CardColor, inputClass: string): string => {
     const base = "self-center btn ";
 
-    if(data().cardColor === type || data().cardColor === "") {
+    if (data().cardColor === type || data().cardColor === "") {
       return base + "mask mask-heart " + inputClass;
     } else {
       return base + "btn-xs btn-circle " + inputClass;
@@ -201,7 +201,7 @@ export default function RSVP() {
                   />
                 </div>
               </div>
-              <textarea class="flex-1 mx-5 textarea textarea-bordered text-lg" placeholder="Tell us how you know Rob & Haley!" value={data().blurb} onChange={updateFormField("blurb")}/>
+              <textarea class="flex-1 mx-5 textarea textarea-bordered text-lg" placeholder="Tell us how you know Haley & Rob! (or who you’re attending with)" value={data().blurb} onChange={updateFormField("blurb")} />
             </div>
             <div class="divider" />
           </div>

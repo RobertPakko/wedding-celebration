@@ -1,5 +1,5 @@
 import { Component } from "solid-js";
-import { AttendeesRef, drawerId, HomeRef, RSVPRef } from "../App";
+import { AttendeesRef, drawerId, FAQRef, HomeRef, RSVPRef } from "../App";
 import { Icon, ICON } from "./icon";
 
 export const NavPanel: Component = () => {
@@ -22,7 +22,7 @@ export const NavPanel: Component = () => {
         <li class={getStyle(AttendeesRef)}><a {...getRef(AttendeesRef)}><Icon icon={ICON.UserGroup}/>Attendees</a></li>
         <li><a><Icon icon={ICON.OfficeBuilding}/>Travel & Lodging</a></li>
         <li><a><Icon icon={ICON.Sparkles}/>Things To Do</a></li>
-        <li><a><Icon icon={ICON.ChatBubble}/>FAQ</a></li>
+        <li class={getStyle(FAQRef)}><a {...getRef(AttendeesRef)}><Icon icon={ICON.ChatBubble}/>FAQ</a></li>
         <li><a><Icon icon={ICON.Gift}/>Registry</a></li>
         <li><a><Icon icon={ICON.Photo}/>Photo Upload</a></li>
       </ul>

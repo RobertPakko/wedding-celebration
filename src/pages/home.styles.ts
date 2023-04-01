@@ -34,5 +34,6 @@ export const h2 = wind({
 }).class();
 
 export const button = wind({
-    fontSize: "text-4xl"
+    fontSize: "text-4xl",
+    width: "w-[450px]"
 }).class();
