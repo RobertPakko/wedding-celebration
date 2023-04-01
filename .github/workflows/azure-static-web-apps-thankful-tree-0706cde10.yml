@@ -37,6 +37,7 @@ jobs:
           VITE_TABLE_NAME: "${{ secrets.TABLE_NAME }}"
           VITE_PARTITION_KEY: "${{ secrets.PARTITION_KEY }}"
           VITE_BLOB_CONTAINER: "${{ secrets.BLOB_CONTAINER }}"
+          VITE_ASSET_CONTAINER: "${{ secrets.ASSET_CONTAINER }}"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'

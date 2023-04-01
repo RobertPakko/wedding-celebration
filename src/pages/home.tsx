@@ -2,9 +2,9 @@ import { RSVPRef } from "../App";
 
 const account = import.meta.env.VITE_STORAGE_ACCOUNT;
 const sasToken = import.meta.env.VITE_SAS_TOKEN;
-const blobContainer = import.meta.env.VITE_BLOB_CONTAINER;
+const assetContainer = import.meta.env.VITE_ASSET_CONTAINER;
 
-const imageUrl = `https://${account}.blob.core.windows.net/${blobContainer}/Seattle.jpg${sasToken}`
+const imageUrl = `https://${account}.blob.core.windows.net/${assetContainer}/Seattle.jpg${sasToken}`
 
 export default function Home() {
   return (
