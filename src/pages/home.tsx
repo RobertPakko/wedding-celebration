@@ -1,4 +1,8 @@
+import * as Styles from "./home.styles"
+import { Button } from "../daisy-typed/button";
+import { daisy } from "../daisy-typed/core";
 import { RSVPRef } from "../App";
+import { HeroContainer, HeroOverlay } from "../daisy-typed/hero";
 
 const account = import.meta.env.VITE_STORAGE_ACCOUNT;
 const sasToken = import.meta.env.VITE_SAS_TOKEN;
@@ -8,14 +12,14 @@ const imageUrl = `https://${account}.blob.core.windows.net/${assetContainer}/Sea
 
 export default function Home() {
   return (
-    <div class="hero min-h-screen" style={`background-image: url(${imageUrl});`}>
-      <div class="hero-overlay bg-opacity-60"></div>
-      <div class="absolute flex flex-col justify-around w-full h-full hero-content text-center text-neutral-content">
-        <h1 class="text-4xl font-extrabold md:text-6xl">You're Invited</h1>
-        <h2 class="text-4xl font-bold md:text-6x1">To Haley and Rob's Wedding Celebration</h2>
-        <h2 class="text-4xl font-bold md:text-6xl">At Noon on August 6th, 2023</h2>
-        <h2 class="text-4xl font-bold md:text-6xl">In Carkeek Park, Seattle</h2>
-        <a href={RSVPRef} class="text-4xl btn btn-primary btn-lg btn-wide">RSVP</a>
+    <div class={daisy(HeroContainer, [], Styles.background)} style={`background-image: url(${imageUrl});`}>
+      <div class={daisy(HeroOverlay, [], Styles.overlay)}></div>
+      <div class={daisy(HeroContainer, [], Styles.contentContainer)}>
+        <h1 class={Styles.h1}>You're Invited</h1>
+        <h2 class={Styles.h2}>To Haley and Rob's Wedding Celebration</h2>
+        <h2 class={Styles.h2}>At Noon on August 6th, 2023</h2>
+        <h2 class={Styles.h2}>In Carkeek Park, Seattle</h2>
+        <a href={RSVPRef} class={daisy(Button, ["primary", "large", "wide"], Styles.button)}>RSVP</a>
       </div>
     </div>
   );
