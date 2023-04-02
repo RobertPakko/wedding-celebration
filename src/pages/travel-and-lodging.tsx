@@ -3,6 +3,10 @@ import { Card, CardBody } from "../daisy-typed/card";
 import { daisy } from "../daisy-typed/core";
 import { Divider } from "../daisy-typed/divider";
 
+const account = import.meta.env.VITE_STORAGE_ACCOUNT;
+const sasToken = import.meta.env.VITE_SAS_TOKEN;
+const assetContainer = import.meta.env.VITE_ASSET_CONTAINER;
+
 export default function TravelAndLodging() {
   return (
     <div class={wind({
@@ -28,6 +32,8 @@ export default function TravelAndLodging() {
             <p>There are lots of ways to get around Seattle without a car, including the Light Rail, King County Buses, Seattle Streetcars, Bike & Scooter Sharing, and even the Seattle Center Monorail! More info about these options can be found here.</p>
             <h2>🏞️ Getting to Carkeek Park</h2>
             <p>Carkeek Park is in the Broadview Neighborhood of Seattle, a bit north of downtown. The easiest way to get to the park is by car (~20 minutes from downtown, plenty of parking available), or there are bus route options as well (check your Maps app for best options).</p>
+            <p>Here is a diagram for where, specifically, in Carkeek the event will take place:</p>
+            <img src={`https://${account}.blob.core.windows.net/${assetContainer}/CarkeekMap.png${sasToken}`} />
             <h2>🏨 Lodging</h2>
             <p>Hotel, Airbnb, staying with a friend – all up to you! There are countless options for accommodations in Seattle. Here are some popular neighborhoods to consider:</p>
             <ul>
