@@ -175,6 +175,20 @@ const DaisyComponents = {
     medium: "badge-md",
     small: "badge-sm",
     extraSmall: "badge-xs"
+  },
+  "toast": {
+    start: "toast-start",
+    center: "toast-center",
+    end: "toast-end",
+    top: "toast-top",
+    middle: "toast-middle",
+    bottom: "toast-bottom"
+  },
+  "alert": {
+    info: "alert-info",
+    success: "alert-success",
+    warning: "alert-warning",
+    error: "alert-error"
   }
 }
 

@@ -161,6 +161,7 @@ export default function ThingsToDo() {
     <div class={wind({
       display: "flex",
       flexWrap: "flex-wrap",
+      justifyContent: "justify-evenly",
       paddingTop: "pt-16",
       gap: "gap-10",
       minHeight: "min-h-screen",

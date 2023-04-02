@@ -30,8 +30,8 @@ export default function Home() {
           <div class={daisy("card-body")({addedClass: daisy("prose")({addedClass: "[&>*]:m-0"})})}>
             <h1 class={wind({ alignSelf: "self-center" }).class()}>You're Invited!</h1>
             <div class={daisy("divider")({addedClass: wind({margin: "m-0"}).class()})}/>
-            <h2>Haley and Rob's Wedding Celebration!</h2>
-            <p>We eloped this winter, but we'd love for you to come celebrate with us this summer!</p>
+            <h2>Haley and Rob's Wedding Celebration</h2>
+            <p>We married in an intimate ceremony in Michigan this winter, but we'd love for you to come celebrate with us in Seattle this summer!</p>
             <h2>Where:</h2>
             <p>Sunday, August 6th, 2023 Noon to Evening</p>
             <h2>When:</h2>
