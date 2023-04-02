@@ -22,7 +22,7 @@ export default function Home() {
         <h2 class={Styles.h2}>In Carkeek Park, Seattle</h2>
         <div class={wind({display: "flex", gap: "gap-10"}).class()}>
           <a href={RSVPRef} class={daisy(Button, ["primary", "large", "wide"], Styles.button)}>RSVP</a>
-          <a class={daisy(Button, ["secondary", "large", "wide"], Styles.button)} target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=MzgwYTFvZ29tZzNmNWszMmh0YmZla2dhNHMgcm9iZXJ0cGFra29AbQ&amp;tmsrc=robertpakko%40gmail.com">Add to Calendar</a>
+          <a class={daisy(Button, ["secondary", "large", "wide"], Styles.button)} target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NG5mdWJrN3E2cjJiZ2FjdWZlNjFsb2FhcW4gcm9iZXJ0cGFra29AbQ&amp;tmsrc=robertpakko%40gmail.com">Add to Calendar</a>
         </div>
       </div>
     </div>
