@@ -1,6 +1,6 @@
 import { Component, Show } from "solid-js"
 import { HomeRef, drawerId } from "../App"
-import { twd, tw } from "../styles"
+import { tw } from "../styles"
 import { Icon, ICON } from "./icon"
 import { daisy, daisyColor } from "../daisy-typed/core"
 import { NavBar } from "../daisy-typed/nav-bar"

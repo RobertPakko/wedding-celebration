@@ -17,6 +17,12 @@ export const RSVPRef = "/rsvp";
 const FAQ = lazy(() => import("./pages/faq"));
 export const FAQRef = "/faq";
 
+const PhotoUpload = lazy(() => import("./pages/photo-upload"));
+export const PhotoUploadRef = "/photo-upload";
+
+const TravelAndLodging = lazy(() => import("./pages/travel-and-lodging"));
+export const TravelAndLodgingRef = "/travel-and-lodging";
+
 const App: Component = () => {
   return (
   <div class="drawer">
@@ -28,6 +34,8 @@ const App: Component = () => {
         <Route path={AttendeesRef} component={Attendees} />
         <Route path={RSVPRef} component={RSVP} />
         <Route path={FAQRef} component={FAQ} />
+        <Route path={PhotoUploadRef} component={PhotoUpload} />
+        <Route path={TravelAndLodgingRef} component={TravelAndLodging} />
       </Routes>
     </div>
     <div class="drawer-side">
