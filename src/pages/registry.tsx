@@ -1,7 +1,5 @@
 import { wind } from "tailwindest";
-import { Card, CardBody } from "../daisy-typed/card";
-import { daisy } from "../daisy-typed/core";
-import { Divider } from "../daisy-typed/divider";
+import { daisy } from "../daisy-typed/daisy-typed";
 
 export default function Registry() {
   return (
@@ -15,11 +13,11 @@ export default function Registry() {
       backgroundImageGradientStart: "from-pink-500",
       backgroundImageGradientEnd: "to-yellow-500"
     }).class()}>
-      <div class={daisy(Card, [], wind({boxShadow: "shadow-xl"}).class(), "bg-base-100")}>
-        <div class={daisy(CardBody)}>
-          <article class="prose">
+      <div class={daisy("card")({addedClass: wind({boxShadow: "shadow-xl"}).class(), color: "bg-base-100"})}>
+        <div class={daisy("card-body")({})}>
+          <article class={daisy("prose")({})}>
             <h1 class={wind({ alignSelf: "self-center" }).class()}>Registry</h1>
-            <div class={daisy(Divider, [], wind({margin: "m-0"}).class())}></div>
+            <div class={daisy("divider")({addedClass: wind({margin: "m-0"}).class()})}/>
             <p>Gifts are NOT expected or necessary, so please don’t feel obligated; your presence at our party and in our lives is gift enough! However, if you’d still like to give a gift, there are a few options:</p>
             <h2>🎓 Contribute to our future family’s education fund</h2>
             <p>It’s never too early to start saving for college! Okay, maybe some would argue that this is a bit early, but the earlier we start saving, the more the funds can grow (tax-free!). We’ve created a Washington 529 “GET” prepaid tuition plan that allows us (and family and friends like you) to purchase “units” of tuition at today’s price to be used in the future. The GET account is currently in our name, but the beneficiary can be easily switched to a new child once they have a SSN.</p>

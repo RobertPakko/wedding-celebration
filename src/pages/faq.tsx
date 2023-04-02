@@ -1,7 +1,5 @@
 import { wind } from "tailwindest";
-import { Card, CardBody } from "../daisy-typed/card";
-import { daisy } from "../daisy-typed/core";
-import { Divider } from "../daisy-typed/divider";
+import { daisy } from "../daisy-typed/daisy-typed";
 
 export default function FAQ() {
   return (
@@ -15,11 +13,11 @@ export default function FAQ() {
       backgroundImageGradientStart: "from-purple-500",
       backgroundImageGradientEnd: "to-pink-500"
     }).class()}>
-      <div class={daisy(Card, [], wind({boxShadow: "shadow-xl"}).class(), "bg-base-100")}>
-        <div class={daisy(CardBody)}>
-          <article class="prose">
+      <div class={daisy("card")({addedClass: wind({boxShadow: "shadow-xl"}).class(), color: "bg-base-100"})}>
+        <div class={daisy("card-body")({})}>
+          <article class={daisy("prose")({})}>
             <h1 class={wind({ alignSelf: "self-center" }).class()}>FAQ</h1>
-            <div class={daisy(Divider, [], wind({margin: "m-0"}).class())}></div>
+            <div class={daisy("divider")({addedClass: wind({margin: "m-0"}).class()})}/>
             <h2>🎉 What is this Wedding Celebration?</h2>
             <p>Although we married in a small ceremony earlier this year, we are very excited to celebrate our marriage with all of our friends and family in a fun, casual, party-like atmosphere in our new city of Seattle! We’ve rented out Carkeek Park for the day, which features stunning views of Puget Sound and the Olympic Mountains, and we will be providing lots of great food, activities, and opportunities to reconnect with old friends.</p>
             <h2>👭 Are +1’s/guests allowed?</h2>

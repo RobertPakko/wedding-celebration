@@ -1,7 +1,5 @@
 import { wind } from "tailwindest";
-import { Card, CardBody } from "../daisy-typed/card";
-import { daisy } from "../daisy-typed/core";
-import { Divider } from "../daisy-typed/divider";
+import { daisy } from "../daisy-typed/daisy-typed";
 
 const account = import.meta.env.VITE_STORAGE_ACCOUNT;
 const sasToken = import.meta.env.VITE_SAS_TOKEN;
@@ -19,11 +17,11 @@ export default function TravelAndLodging() {
       backgroundImageGradientStart: "from-cyan-500",
       backgroundImageGradientEnd: "to-blue-500"
     }).class()}>
-      <div class={daisy(Card, [], wind({boxShadow: "shadow-xl"}).class(), "bg-base-100")}>
-        <div class={daisy(CardBody)}>
-          <article class="prose">
+      <div class={daisy("card")({color: "bg-base-100", addedClass: wind({boxShadow: "shadow-xl"}).class()})}>
+        <div class={daisy("card-body")({})}>
+          <article class={daisy("prose")({})}>
             <h1 class={wind({ alignSelf: "self-center" }).class()}>Travel and Lodging</h1>
-            <div class={daisy(Divider, [], wind({margin: "m-0"}).class())}></div>
+            <div class={daisy("divider")({addedClass: wind({margin: "m-0"}).class()})}/>
             <h2>🛬 Flying Into Seattle</h2>
             <p>Seattle’s major airport is the Seattle-Tacoma International Airport (SEA).</p>
             <p>To get to the city from the airport, we recommend taking the 1 Line, a Light Rail Train that runs directly from the airport to downtown and beyond. The Light Rail takes about 30 minutes to run from the airport to downtown.</p>

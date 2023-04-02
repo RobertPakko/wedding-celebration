@@ -1,5 +1,5 @@
 import { Component, mergeProps } from "solid-js";
-import { tw } from "../styles";
+import { wind } from "tailwindest";
 
 // Icons provided by heroicons
 
@@ -26,7 +26,7 @@ export interface IconProps {
 }
 
 export const Icon: Component<IconProps> = (initProps: IconProps) => {
-  const props = mergeProps({ class: tw(["inline-block", "w-5", "h-5", "stroke-current"]) }, initProps);
+  const props = mergeProps({ class: wind({display: "inline-block", width: "w-5", height: "h-5", stroke: "stroke-current"}).class() }, initProps);
 
   return (
     <svg class={props.class} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

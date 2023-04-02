@@ -1,7 +1,5 @@
 import { wind } from "tailwindest";
-import { Card, CardBody } from "../daisy-typed/card";
-import { daisy } from "../daisy-typed/core";
-import { Divider } from "../daisy-typed/divider";
+import { daisy } from "../daisy-typed/daisy-typed";
 
 export default function PhotoUpload() {
   return (
@@ -15,11 +13,11 @@ export default function PhotoUpload() {
       backgroundImageGradientStart: "from-fuchsia-500",
       backgroundImageGradientEnd: "to-violet-500"
     }).class()}>
-      <div class={daisy(Card, [], wind({boxShadow: "shadow-xl"}).class(), "bg-base-100")}>
-        <div class={daisy(CardBody)}>
-          <article class="prose">
+      <div class={daisy("card")({addedClass: wind({boxShadow: "shadow-xl"}).class(), color: "bg-base-100"})}>
+        <div class={daisy("card-body")({})}>
+          <article class={daisy("prose")({})}>
             <h1 class={wind({ alignSelf: "self-center" }).class()}>Photo Upload</h1>
-            <div class={daisy(Divider, [], wind({margin: "m-0"}).class())}></div>
+            <div class={daisy("divider")({addedClass: wind({margin: "m-0"}).class()})}/>
             <h2>🚧 Under construction</h2>
             <p>This is where you'll be able to upload photos after the event! Nothing is set up now.</p>
           </article>
