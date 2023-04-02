@@ -34,7 +34,7 @@ export interface DaisyComponent<T> {
 }
 
 // Creates a space seperated string with component names, component modifiers, and additional class string if desired
-export function daisy<T>(component: DaisyComponent<T>, modifiers: (keyof T)[] = [], addedClass: string = ""): string {
-    return [component.name].concat(modifiers.map(x => component.modifiers[x])).join(" ") + ` ${addedClass}`;
+export function daisy<T>(component: DaisyComponent<T>, modifiers: (keyof T)[] = [], addedClass: string = "", color: DaisyColorType | "" = ""): string {
+    return [component.name].concat(modifiers.map(x => component.modifiers[x])).join(" ") + ` ${color}` + ` ${addedClass}`;
 };
 

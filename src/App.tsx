@@ -1,6 +1,6 @@
 import { Routes, Route } from '@solidjs/router';
 import { Component, lazy } from 'solid-js';
-import { NavBar } from './components/nav-bar';
+import { NavBarComponent } from './components/nav-bar';
 import { NavPanel } from './components/nav-panel';
 
 export const drawerId = "my-drawer";
@@ -22,7 +22,7 @@ const App: Component = () => {
   <div class="drawer">
     <input id={drawerId} type="checkbox" class="drawer-toggle" />
     <div class="drawer-content">
-      <NavBar/>
+      <NavBarComponent/>
       <Routes>
         <Route path={HomeRef} component={Home} />
         <Route path={AttendeesRef} component={Attendees} />

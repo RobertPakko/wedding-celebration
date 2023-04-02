@@ -7,7 +7,7 @@ export default function FAQ() {
   return (
     <div class={wind({
       display: "flex",
-      padding: "p-20",
+      paddingY: "py-16",
       flexDirection: "flex-col",
       minHeight: "min-h-screen",
       alignItems: "items-center",
@@ -15,7 +15,7 @@ export default function FAQ() {
       backgroundImageGradientStart: "from-purple-500",
       backgroundImageGradientEnd: "to-pink-500"
     }).class()}>
-      <div class={daisy(Card, [], daisyColor("bg-base-100", wind({boxShadow: "shadow-xl"}).class()))}>
+      <div class={daisy(Card, [], wind({boxShadow: "shadow-xl"}).class(), "bg-base-100")}>
         <div class={daisy(CardBody)}>
           <article class="prose">
             <h1 class={wind({ alignSelf: "self-center" }).class()}>FAQ</h1>
