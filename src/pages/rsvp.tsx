@@ -3,6 +3,8 @@ import { BlobServiceClient, newPipeline } from "@azure/storage-blob";
 import { createSignal, Show } from "solid-js";
 import { Person } from "./attendees";
 import { ImageTools } from "../services/image-tools";
+import { wind } from "tailwindest";
+import { daisy } from "../daisy-typed/daisy-typed";
 
 export type CardColor = "" | "Primary" | "Secondary" | "Accent" | "Neutral" | "Base";
 type DietaryRestriction = "None" | "Vegetarian" | "Vegan" | "GlutenFree" | "Other";
@@ -122,8 +124,8 @@ export default function RSVP() {
           setIsLoading(false);
         });
       } else {
+        // I've never had this happen so I'm not gonna put an alert here
         console.log("Image failed to resize");
-        //TODO: do something about this
       }
     })
   }
@@ -134,26 +136,67 @@ export default function RSVP() {
     if (data().cardColor === type || data().cardColor === "") {
       return base + "mask mask-heart " + inputClass;
     } else {
-      return base + "btn-xs btn-circle " + inputClass;
+      return base + "btn-sm btn-circle " + inputClass;
     }
   }
 
   return (
-    <div class="w-full min-h-full bg-secondary bg-opacity-40">
-      <div class="p-20 flex flex-col justify-between text-center gap-8">
-        <h1 class="flex-none text-4xl font-extrabold md:text-6xl">RSVP</h1>
-        <div class="flex-none">
-          <div class="flex flex-wrap justify-between">
-            <input type="text" placeholder="First Name" class="input input-bordered w-full max-w-xs" value={data().firstName} onChange={updateFormField("firstName")} />
-            <input type="text" placeholder="Last Name" class="input input-bordered w-full max-w-xs" value={data().lastName} onChange={updateFormField("lastName")} />
-            <input type="text" placeholder="Email" class="input input-bordered w-full max-w-xs" value={data().email} onChange={updateFormField("email")} />
+    <div class={wind({
+      display: "flex",
+      flexDirection: "flex-col",
+      minHeight: "min-h-screen",
+      paddingTop: "pt-16",
+      alignItems: "items-center",
+      backgroundImage: "bg-gradient-to-r",
+      backgroundImageGradientStart: "from-emerald-500",
+      backgroundImageGradientEnd: "to-pink-500",
+      "@lg": {
+        paddingBottom: "lg:pb-16"
+      }
+    }).class()}>
+      <div class={daisy("card")({addedClass: wind({boxShadow: "shadow-xl", maxWidth: "max-w-[100%]"}).class(), color: "bg-base-100"})}>
+        <div class={daisy("card-body")({addedClass: wind({
+          display: "flex",
+          flexDirection: "flex-col",
+          alignItems: "items-center",
+          gap: "gap-10"
+        }).class()})}>
+          <article class={daisy("prose")({addedClass: wind({width: "w-full"}).class()})}>
+            <h1 class={wind({textAlign: "text-center"}).class()}>RSVP</h1>
+            <div class={daisy("divider")({addedClass: wind({margin: "m-0"}).class()})}/>
+          </article>
+          <div class={wind({display: "flex", flexWrap: "flex-wrap", gap: "gap-10"}).class()}>
+            <input
+              type="text"
+              placeholder="First Name"
+              value={data().firstName}
+              onChange={updateFormField("firstName")}
+              class={daisy("input")({modifiers: ["bordered"]})}
+            />
+            <input
+              type="text"
+              placeholder="Last Name"
+              value={data().lastName}
+              onChange={updateFormField("lastName")}
+              class={daisy("input")({modifiers: ["bordered"]})}
+            />
+            <input
+              type="text"
+              placeholder="Email"
+              value={data().email}
+              onChange={updateFormField("email")}
+              class={daisy("input")({modifiers: ["bordered"]})}
+            />
           </div>
-        </div>
-        <div class="flex-none form-control">
-          <div class="flex flex-wrap justify-between">
-            <div class="dropdown dropdown-hover">
-              <label tabindex="0" class="btn m-1">{"Dietary Restriction: " + data().dietaryRestriction}</label>
-              <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+          <div class={wind({display: "flex", flexWrap: "flex-wrap", gap: "gap-10"}).class()}>
+            <div class={daisy("dropdown")({modifiers: ["hover"]})}>
+              <label tabindex="0" class={daisy("btn")({})}>{"Dietary Restriction: " + data().dietaryRestriction}</label>
+              <ul tabindex="0" class={daisy("dropdown-content")({modifiers: ["menu"], color: "bg-base-300", addedClass: wind({
+                  padding: "p-2",
+                  boxShadow: "shadow",
+                  borderRadius: "rounded-xl",
+                  width: "w-52"
+                }).class()})}>
                 <li><a onClick={updateDietaryRestriction("None")}>None</a></li>
                 <li><a onClick={updateDietaryRestriction("Vegetarian")}>Vegetarian</a></li>
                 <li><a onClick={updateDietaryRestriction("Vegan")}>Vegan</a></li>
@@ -162,52 +205,81 @@ export default function RSVP() {
               </ul>
             </div>
             <Show when={data().dietaryRestriction === "Other"}>
-              <input type="text" placeholder="Please specify" class="input input-bordered w-full max-w-[200px]" value={data().dietaryRestrictionOther} onChange={updateFormField("dietaryRestrictionOther")} />
+              <input
+                type="text"
+                placeholder="Please specify"
+                value={data().dietaryRestrictionOther}
+                onChange={updateFormField("dietaryRestrictionOther")}
+                class={daisy("input")({modifiers: ["bordered"]})}
+              />
             </Show>
-            <div class="flex-none">
-              <label class="label cursor-pointer">
-                <span class="label-text font-bold text-xl mr-5">Add me to the public attendees list (recommended!)</span>
-                <input type="checkbox" class="checkbox checkbox-primary checkbox-lg" checked={data().addToAttendees} onClick={updateCheckbox("addToAttendees")} />
+          </div>
+          <label class={daisy("label")({modifiers: ["cursorPointer"]})}>
+            <span class={daisy("label-text")({addedClass: wind({
+              fontWeight: "font-bold",
+              fontSize: "text-xl",
+              marginRight: "mr-5"
+            }).class()})}>Add me to the public attendees list (recommended!)</span>
+            <input
+              type="checkbox"
+              class={daisy("checkbox")({modifiers: ["primary", "large"]})}
+              checked={data().addToAttendees}
+              onClick={updateCheckbox("addToAttendees")}
+            />
+          </label>
+          <Show when={data().addToAttendees}>
+            <div class={daisy("divider")({addedClass: wind({margin: "m-0"}).class()})}/>
+            <div class={wind({display: "flex", flexDirection: "flex-col", alignItems: "items-center", maxWidth: "max-w-[100%]"}).class()}>
+              <label class={daisy("label")({})}>
+                <span class={daisy("label-text")({addedClass: wind({
+                  fontWeight: "font-bold",
+                  fontSize: "text-lg"
+                }).class()})}>Select a color for your card on the attendees page:</span>
               </label>
-            </div>
-          </div>
-        </div>
-        <Show when={data().addToAttendees}>
-          <div>
-            <div class="divider" />
-            <div class="flex justify-around bg-base-300 rounded-box p-8">
-              <div class="flex flex-col gap-3">
-                <div>
-                  <label class="label">
-                    <span class="label-text text-lg font-bold">Select a color for your card on the attendees page</span>
-                  </label>
-                  <div class="flex justify-around bg-base-100 rounded-box p-3">
-                    <button onClick={updateCardColor("Primary")} class={getButtonStyle("Primary", "btn-primary")} />
-                    <button onClick={updateCardColor("Secondary")} class={getButtonStyle("Secondary", "btn-secondary")} />
-                    <button onClick={updateCardColor("Accent")} class={getButtonStyle("Accent", "btn-accent")} />
-                    <button onClick={updateCardColor("Neutral")} class={getButtonStyle("Neutral", "bg-neutral")} />
-                    <button onClick={updateCardColor("Base")} class={getButtonStyle("Base", "btn-active btn-ghost")} />
-                  </div>
-                </div>
-                <div>
-                  <label class="label">
-                    <span class="label-text text-lg font-bold">Upload a photo of yourself for the attendees page</span>
-                  </label>
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={updateImage}
-                    class="file-input file-input-primary file-input-lg w-full max-w-xs"
-                  />
-                </div>
+              <div class={wind({
+                display: "flex",
+                flexWrap: "flex-wrap",
+                justifyContent: "justify-around",
+                width: "w-full"
+              }).class()}>
+                <button onClick={updateCardColor("Primary")} class={getButtonStyle("Primary", "btn-primary")} />
+                <button onClick={updateCardColor("Secondary")} class={getButtonStyle("Secondary", "btn-secondary")} />
+                <button onClick={updateCardColor("Accent")} class={getButtonStyle("Accent", "btn-accent")} />
+                <button onClick={updateCardColor("Neutral")} class={getButtonStyle("Neutral", "bg-neutral")} />
+                <button onClick={updateCardColor("Base")} class={getButtonStyle("Base", "btn-active btn-ghost")} />
               </div>
-              <textarea class="flex-1 mx-5 textarea textarea-bordered text-lg" placeholder="Tell us how you know Haley & Rob! (or who you’re attending with)" value={data().blurb} onChange={updateFormField("blurb")} />
             </div>
-            <div class="divider" />
-          </div>
-        </Show>
-        <div class="flex-none">
-          <button class={"btn btn-primary btn-lg btn-wide" + (isLoading() ? " btn-disabled" : "")} onClick={uploadData}>SUBMIT</button>
+            <div class={wind({display: "flex", flexDirection: "flex-col", alignItems: "items-center", maxWidth: "max-w-[100%]"}).class()}>
+              <label class={daisy("label")({})}>
+                <span class={daisy("label-text")({addedClass: wind({
+                  fontWeight: "font-bold",
+                  fontSize: "text-lg"
+                }).class()})}>Upload a photo of yourself for the attendees page</span>
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={updateImage}
+                class={daisy("file-input")({modifiers: ["primary", "large"], addedClass: wind({maxWidth: "max-w-[100%]"}).class()})}
+              />
+            </div>
+            <textarea
+              class={daisy("textarea")({modifiers: ["bordered", "large"], addedClass: wind({width: "w-full", minHeight: "min-h-[140px]"}).class()})}
+              placeholder="Tell us how you know Haley & Rob! (or who you’re attending with)"
+              value={data().blurb}
+              onChange={updateFormField("blurb")}
+            />
+            <div class={daisy("divider")({addedClass: wind({margin: "m-0"}).class()})} />
+          </Show>
+          <button
+            class={daisy("btn")({
+              modifiers: ["primary", "large", "wide"],
+              addedClass: isLoading() ? daisy("btn")({modifiers: ["disabled"]}) : undefined
+            })}
+            onClick={uploadData}
+          >
+            SUBMIT
+          </button>
         </div>
       </div>
     </div>

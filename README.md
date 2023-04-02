@@ -1,8 +1,10 @@
 ## Tech Stack
 
-- Framework: Solid
+- Framework: SolidJS
+- Build tool: Vite
 - Language: TypeScript
-- CSS: Tailwind
-- Icons: heroicons
-- Components: Daisy
-- Infra: Azure Web Apps
+- Hosting: Azure Static Sites
+- Storage: Azure Storage
+- CSS: Tailwind + Tailwindest
+- Icons: Heroicons
+- Components: Daisy UI

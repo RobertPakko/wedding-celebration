@@ -5,13 +5,16 @@ export default function PhotoUpload() {
   return (
     <div class={wind({
       display: "flex",
-      paddingY: "py-16",
+      paddingTop: "pt-16",
       flexDirection: "flex-col",
       minHeight: "min-h-screen",
       alignItems: "items-center",
       backgroundImage: "bg-gradient-to-r",
       backgroundImageGradientStart: "from-fuchsia-500",
-      backgroundImageGradientEnd: "to-violet-500"
+      backgroundImageGradientEnd: "to-violet-500",
+      "@lg": {
+        paddingBottom: "lg:pb-16"
+      }
     }).class()}>
       <div class={daisy("card")({addedClass: wind({boxShadow: "shadow-xl"}).class(), color: "bg-base-100"})}>
         <div class={daisy("card-body")({})}>

@@ -24,7 +24,7 @@ export default function FAQ() {
             <p>Absolutely! Just be sure to have them complete the RSVP form as well so we can have an accurate headcount.</p>
             <h2>👔 What attire is appropriate?</h2>
             <p>Casual, or whatever you’d wear to an outdoor summer barbecue! August in Seattle is typically in the 70’s and sunny.</p>
-            <h2>✈️ If we are visiting from out of town, where should we stay?</h2>
+            <h2>🧳 If we are visiting from out of town, where should we stay?</h2>
             <p>Check out our Travel + Lodging page for more info on where to stay in Seattle, how to get around, etc.</p>
             <h2>🏙️ What else is there to do around Seattle while we’re in town?</h2>
             <p>We’re glad you asked! There’s so much to do in the Seattle area, so we highly recommend staying the whole weekend (or longer!). Check out our Things to Do page for some ideas to get you started.</p>
