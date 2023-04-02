@@ -156,7 +156,7 @@ const content: {
   }
 ]
 
-const getImageLink = (imageRef: string): string => `https://${account}.blob.core.windows.net/${assetContainer}/${imageRef}${sasToken}`
+const getImageLink = (imageRef: string): string => `https://${account}-secondary.blob.core.windows.net/${assetContainer}/${imageRef}${sasToken}`
 
 export default function ThingsToDo() {
   return (

@@ -6,7 +6,7 @@ const account = import.meta.env.VITE_STORAGE_ACCOUNT;
 const sasToken = import.meta.env.VITE_SAS_TOKEN;
 const assetContainer = import.meta.env.VITE_ASSET_CONTAINER;
 
-const imageUrl = `https://${account}.blob.core.windows.net/${assetContainer}/Seattle.jpg${sasToken}`
+const imageUrl = `https://${account}-secondary.blob.core.windows.net/${assetContainer}/Seattle.jpg${sasToken}`
 
 const h1Style = wind({
   fontSize: "text-4xl",
