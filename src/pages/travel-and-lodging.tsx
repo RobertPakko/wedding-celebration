@@ -23,7 +23,7 @@ export default function TravelAndLodging() {
       <div class={daisy("card")({color: "bg-base-100", addedClass: wind({boxShadow: "shadow-xl"}).class()})}>
         <div class={daisy("card-body")({})}>
           <article class={daisy("prose")({})}>
-            <h1 class={wind({ alignSelf: "self-center" }).class()}>Travel and Lodging</h1>
+            <h1>Travel and Lodging</h1>
             <div class={daisy("divider")({addedClass: wind({margin: "m-0"}).class()})}/>
             <h2>🛬 Flying Into Seattle</h2>
             <p>Seattle’s major airport is the Seattle-Tacoma International Airport (SEA).</p>

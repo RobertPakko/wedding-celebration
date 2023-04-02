@@ -19,7 +19,7 @@ export default function PhotoUpload() {
       <div class={daisy("card")({addedClass: wind({boxShadow: "shadow-xl"}).class(), color: "bg-base-100"})}>
         <div class={daisy("card-body")({})}>
           <article class={daisy("prose")({})}>
-            <h1 class={wind({ alignSelf: "self-center" }).class()}>Photo Upload</h1>
+            <h1>Photo Upload</h1>
             <div class={daisy("divider")({addedClass: wind({margin: "m-0"}).class()})}/>
             <h2>🚧 Under construction</h2>
             <p>This is where you'll be able to upload photos after the event! Nothing is set up now.</p>

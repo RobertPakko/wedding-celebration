@@ -19,7 +19,7 @@ export default function Registry() {
       <div class={daisy("card")({addedClass: wind({boxShadow: "shadow-xl"}).class(), color: "bg-base-100"})}>
         <div class={daisy("card-body")({})}>
           <article class={daisy("prose")({})}>
-            <h1 class={wind({ alignSelf: "self-center" }).class()}>Registry</h1>
+            <h1>Registry</h1>
             <div class={daisy("divider")({addedClass: wind({margin: "m-0"}).class()})}/>
             <p>Gifts are NOT expected or necessary, so please don’t feel obligated; your presence at our party and in our lives is gift enough! However, if you’d still like to give a gift, there are a few options:</p>
             <h2>🎓 Contribute to our future family’s education fund</h2>

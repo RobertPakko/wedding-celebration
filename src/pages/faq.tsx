@@ -16,7 +16,7 @@ export default function FAQ() {
       <div class={daisy("card")({addedClass: wind({boxShadow: "shadow-xl"}).class(), color: "bg-base-100"})}>
         <div class={daisy("card-body")({})}>
           <article class={daisy("prose")({})}>
-            <h1 class={wind({ alignSelf: "self-center" }).class()}>FAQ</h1>
+            <h1>FAQ</h1>
             <div class={daisy("divider")({addedClass: wind({margin: "m-0"}).class()})}/>
             <h2>🎉 What is this Wedding Celebration?</h2>
             <p>Although we married in a small ceremony earlier this year, we are very excited to celebrate our marriage with all of our friends and family in a fun, casual, party-like atmosphere in our new city of Seattle! We’ve rented out Carkeek Park for the day, which features stunning views of Puget Sound and the Olympic Mountains, and we will be providing lots of great food, activities, and opportunities to reconnect with old friends.</p>
