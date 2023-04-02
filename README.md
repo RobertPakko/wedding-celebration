@@ -7,4 +7,6 @@
 - Storage: Azure Storage
 - CSS: Tailwind + Tailwindest
 - Icons: Heroicons
-- Components: Daisy UI
+- Components: Daisy UI + typed-daisy
+
+You can find these tools in my list of starred repositories

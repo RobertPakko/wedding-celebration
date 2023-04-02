@@ -26,6 +26,9 @@ export const TravelAndLodgingRef = "/travel-and-lodging";
 const Registry = lazy(() => import("./pages/registry"));
 export const RegistryRef = "/registry";
 
+const ThingsToDo = lazy(() => import("./pages/things-to-do"));
+export const ThingsToDoRef = "/things-to-do";
+
 const App: Component = () => {
   return (
   <div class="drawer">
@@ -40,6 +43,7 @@ const App: Component = () => {
         <Route path={PhotoUploadRef} component={PhotoUpload} />
         <Route path={TravelAndLodgingRef} component={TravelAndLodging} />
         <Route path={RegistryRef} component={Registry} />
+        <Route path={ThingsToDoRef} component={ThingsToDo} />
       </Routes>
     </div>
     <div class="drawer-side">

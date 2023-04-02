@@ -191,12 +191,12 @@ export default function RSVP() {
           <div class={wind({display: "flex", flexWrap: "flex-wrap", gap: "gap-10"}).class()}>
             <div class={daisy("dropdown")({modifiers: ["hover"]})}>
               <label tabindex="0" class={daisy("btn")({})}>{"Dietary Restriction: " + data().dietaryRestriction}</label>
-              <ul tabindex="0" class={daisy("dropdown-content")({modifiers: ["menu"], color: "bg-base-300", addedClass: wind({
+              <ul tabindex="0" class={daisy("dropdown-content")({color: "bg-base-300", addedClass: daisy("menu")({addedClass: wind({
                   padding: "p-2",
                   boxShadow: "shadow",
                   borderRadius: "rounded-xl",
                   width: "w-52"
-                }).class()})}>
+                }).class()})})}>
                 <li><a onClick={updateDietaryRestriction("None")}>None</a></li>
                 <li><a onClick={updateDietaryRestriction("Vegetarian")}>Vegetarian</a></li>
                 <li><a onClick={updateDietaryRestriction("Vegan")}>Vegan</a></li>

@@ -1,6 +1,6 @@
 import { Component, Show } from "solid-js"
 import { HomeRef, drawerId } from "../App"
-import { Icon, ICON } from "./icon"
+import { Icon } from "./icon"
 import { daisy } from "../daisy-typed/daisy-typed"
 import { wind } from "tailwindest"
 
@@ -17,14 +17,14 @@ export const NavBarComponent: Component = () => {
       })}>
         <div>
           <label for={drawerId} class={headerButtonClass}>
-            <Icon icon={ICON.ThreeBars}/>
+            <Icon icon="threeBars"/>
           </label>
         </div>
         <div class={wind({flexGrow: "grow"}).class()}/>
         <Show when={window.location.pathname === HomeRef}>
           <div>
             <button class={headerButtonClass}>
-              <a href="https://github.com/RobertPakko/wedding-celebration" target="_blank"><Icon icon={ICON.DiamondStack}/></a>
+              <a href="https://github.com/RobertPakko/wedding-celebration" target="_blank"><Icon icon="diamondStack"/></a>
             </button>
           </div>
         </Show>

@@ -78,9 +78,7 @@ const DaisyComponents = {
     hover: "dropdown-hover",
     forceOpen: "dropdown-open"
   },
-  "dropdown-content": {
-    menu: "menu"
-  },
+  "dropdown-content": {},
   "checkbox": {
     primary: "checkbox-primary",
     secondary: "checkbox-secondary",
@@ -128,14 +126,56 @@ const DaisyComponents = {
     cursorPointer: "cursor-pointer"
   },
   "label-text": {},
-  "card": {},
+  "card": {
+    bordered: "card-bordered",
+    imageFull: "image-full",
+    normal: "card-normal",
+    compact: "card-compact",
+    side: "card-side"
+  },
   "card-title": {},
   "card-body": {},
+  "card-actions": {},
   "divider": {},
   "hero": {},
   "hero-content": {},
   "hero-overlay": {},
-  "navbar": {}
+  "navbar": {},
+  "drawer": {},
+  "drawer-toggle": {},
+  "drawer-content": {},
+  "drawer-side": {},
+  "drawer-overlay": {},
+  "drawer-mobile": {},
+  "drawer-end": {},
+  "menu": {
+    normal: "menu-normal",
+    compact: "menu-compact",
+    vertical: "menu-vertical",
+    horizontal: "menu-horizontal"
+  },
+  "menu-item": {
+    title: "menu-title",
+    disabled: "disabled",
+    active: "active",
+    bordered: "bordered",
+    hoverBordered: "hover-bordered"
+  },
+  "badge": {
+    outline: "badge-outline",
+    primary: "badge-primary",
+    secondary: "badge-secondary",
+    accent: "badge-accent",
+    ghost: "badge-ghost",
+    info: "badge-info",
+    success: "badge-success",
+    warning: "badge-warning",
+    error: "badge-error",
+    large: "badge-lg",
+    medium: "badge-md",
+    small: "badge-sm",
+    extraSmall: "badge-xs"
+  }
 }
 
 type DaisyKeys<T> = T extends keyof typeof DaisyComponents ? keyof typeof DaisyComponents[T] : never;
