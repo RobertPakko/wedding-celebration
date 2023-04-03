@@ -27,6 +27,7 @@ type DaisyColors = "primary"
 type DaisyColorType = `${DaisyColorPrefixes}-${DaisyColors}`;
 
 const DaisyComponents = {
+  "": {},
   "prose": {},
   "btn": {
     primary: "btn-primary",
@@ -189,6 +190,15 @@ const DaisyComponents = {
     success: "alert-success",
     warning: "alert-warning",
     error: "alert-error"
+  },
+  "avatar": {
+    online: "online",
+    offline: "offline",
+    placeholder: "placeholder"
+  },
+  "avatar-group": {},
+  "mask": {
+    squircle: "mask-squircle"
   }
 }
 

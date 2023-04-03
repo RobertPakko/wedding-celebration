@@ -1,6 +1,8 @@
 import { AzureSASCredential, TableClient } from "@azure/data-tables";
-import { createSignal, For, onMount } from "solid-js";
+import { createSignal, For, onMount, Show } from "solid-js";
 import { CardColor } from "./rsvp";
+import { wind } from "tailwindest";
+import { daisy } from "../daisy-typed/daisy-typed";
 
 const account = import.meta.env.VITE_STORAGE_ACCOUNT;
 const sasToken = import.meta.env.VITE_SAS_TOKEN;
@@ -28,7 +30,7 @@ export default function Attendees() {
     const attendees = tableClient.listEntities({
       queryOptions: {
         select: ["firstName", "lastName", "blurb", "cardColor", "imageRef"],
-        filter: "addToAttendees eq true"
+        filter: "addToAttendees eq true and ableToAttend eq true"
       }
     });
 
@@ -40,26 +42,72 @@ export default function Attendees() {
     setPeople(tempArr);
   });
 
-  const getButtonStyle = (color: CardColor): string => {
+  const getCardStyle = (color: CardColor): string => {
     switch(color) {
-      case "Secondary": return "bg-secondary bg-opacity-40";
-      case "Accent": return "bg-accent bg-opacity-40";
-      case "Base": return "bg-base-300";
-      case "Neutral": return "bg-neutral text-neutral-content";
-      default: return "bg-primary bg-opacity-40";
+      case "Secondary": return daisy("card")({color: "bg-secondary"});
+      case "Accent": return daisy("card")({color: "bg-accent"});
+      case "Base": return daisy("card")({color: "bg-base-300"});
+      case "Neutral": return daisy("card")({color: "bg-neutral", addedClass: "text-neutral-content"});
+      default: return daisy("card")({color: "bg-primary"});
     }
   }
 
   return (
-    <div class="m-12 flex flex-wrap">
+    <div class={wind({
+      display: "flex",
+      flexWrap: "flex-wrap",
+      justifyContent: "justify-evenly",
+      paddingTop: "pt-16",
+      gap: "gap-10",
+      minHeight: "min-h-screen",
+      backgroundImage: "bg-gradient-to-r",
+      backgroundImageGradientStart: "from-violet-500",
+      backgroundImageGradientEnd: "to-cyan-500",
+      "@lg": {
+        padding: "lg:p-16"
+      }
+    }).class()}>
       <For each={people()}>{(person) =>
-        <div class={"card mx-5 w-[200px] shadow-xl " + getButtonStyle(person.cardColor)}>
-          <figure class="px-[20px] pt-[20px] h-[180px]">
-            <img class="rounded-xl" src={`https://${account}.blob.core.windows.net/${blobContainer}/${person.imageRef + sasToken}`} alt={"Picture of " + person.firstName + " " + person.lastName} />
-          </figure>
-          <div class="card-body p-5">
-            <h2 class="text-sm card-title">{person.firstName + " " + person.lastName}</h2>
-            <p class="text-sm">{person.blurb}</p>
+        <div class={wind({boxShadow: "shadow-xl", padding: "p-7", width: "w-80", height: "h-96"}).class() + " " + getCardStyle(person.cardColor)}>
+          <Show when={person.imageRef !== ""}>
+            <div class={daisy("avatar")({addedClass: wind({alignSelf: "self-center"}).class() })}>
+              <div class={daisy("mask")({modifiers: ["squircle"], addedClass: wind({width: "w-44"}).class()})}>
+                <img
+                  src={`https://${account}.blob.core.windows.net/${blobContainer}/${person.imageRef + sasToken}`}
+                  alt={"Picture of " + person.firstName + " " + person.lastName}
+                />
+              </div>
+            </div>
+          </Show>
+          <Show when={person.imageRef === ""}>
+            <div class={daisy("avatar")({modifiers: ["placeholder"], addedClass: wind({alignSelf: "self-center"}).class()})}>
+              <div class={daisy("mask")({
+                color: "bg-base-100",
+                modifiers: ["squircle"],
+                addedClass: wind({width: "w-44"
+              }).class()})}>
+                <span class={daisy("")({color: "text-neutral", addedClass: wind({fontSize: "text-3xl"}).class()})}>
+                  {
+                    person.firstName ? person.firstName[0] : ""
+                    + " "
+                    + person.lastName ? person.lastName[0] : ""
+                  }
+                </span>
+              </div>
+            </div>
+          </Show>
+          <div class={daisy("card-body")({addedClass: wind({paddingX: "px-0", paddingBottom: "pb-0", paddingTop: "pt-3"}).class()})}>
+            <h2 class={daisy("card-title")({addedClass: wind({alignSelf: "self-center"}).class()})}>{person.firstName + " " + person.lastName}</h2>
+            <Show when={person.blurb !== ""}>
+              <p class={daisy("")({color: "text-base-content", addedClass: daisy("")({color: "bg-base-100", addedClass: wind({
+                overflow: "overflow-y-auto",
+                height: "h-28",
+                borderRadius: "rounded-md",
+                padding: "p-2"
+              }).class()})})}>
+                {person.blurb}
+              </p>
+            </Show>
           </div>
         </div>
       }</For>
