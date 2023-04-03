@@ -1,3 +1,4 @@
+// Note, there are more color prefixes
 type DaisyColorPrefixes = "bg" | "text";
 type DaisyColors = "primary"
     | "primary-focus"
@@ -204,6 +205,7 @@ const DaisyComponents = {
 
 type DaisyKeys<T> = T extends keyof typeof DaisyComponents ? keyof typeof DaisyComponents[T] : never;
 
+// Todo: remove addedClass
 export const daisy = <T extends keyof typeof DaisyComponents>(componentKey: T) => {
   interface inputs {
     modifiers?: DaisyKeys<T>[],

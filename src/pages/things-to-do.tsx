@@ -81,36 +81,43 @@ const content: {
     imageRef: "science_center.jpg",
     title: "Pacific Science Center",
     tag: "Museums",
-    description: "",
+    description: "Interactive science museum, fun for kids and adults alike!",
     link: "https://pacificsciencecenter.org/"
   },
   {
     imageRef: "art_museum.jpg",
     title: "Seattle Art Museum",
     tag: "Museums",
-    description: "",
+    description: "Art museum located in downtown Seattle near Pike Place Market.",
     link: "https://www.seattleartmuseum.org/"
   },
   {
     imageRef: "chihuly_garden_and_glass.jpg",
     title: "Chihuly Garden and Glass",
     tag: "Museums",
-    description: "",
+    description: "Art exhibit at the Seattle Center featuring glass sculpture works by Dale Chihuly.",
     link: "https://www.chihulygardenandglass.com/"
   },
   {
     imageRef: "mopop.jpg",
     title: "Museum of Pop Culture (MoPOP)",
     tag: "Museums",
-    description: "",
+    description: "Museum at the Seattle Center dedicated to contemporary popular culture.",
     link: "https://www.mopop.org/"
   },
   {
     imageRef: "flight_museum.jpg",
     title: "The Museum of Flight",
     tag: "Museums",
-    description: "",
+    description: "Air and space museum with over 175 aircraft and spacecraft to explore.",
     link: "https://www.museumofflight.org/"
+  },
+  {
+    imageRef: "mohai.png",
+    title: "Museum of History & Industry (MOHAI)",
+    tag: "Museums",
+    description: "Museum telling Seattle’s story, from an age when Native American cultures first came into contact with Europeans to the region’s transformation into a major global hub.",
+    link: "https://mohai.org/"
   },
   {
     imageRef: "pike_place_market.jpg",

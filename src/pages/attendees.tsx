@@ -73,7 +73,7 @@ export default function Attendees() {
             <div class={daisy("avatar")({addedClass: wind({alignSelf: "self-center"}).class() })}>
               <div class={daisy("mask")({modifiers: ["squircle"], addedClass: wind({width: "w-44"}).class()})}>
                 <img
-                  src={`https://${account}.blob.core.windows.net/${blobContainer}/${person.imageRef + sasToken}`}
+                  src={`https://${account}-secondary.blob.core.windows.net/${blobContainer}/${person.imageRef + sasToken}`}
                   alt={"Picture of " + person.firstName + " " + person.lastName}
                 />
               </div>

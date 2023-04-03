@@ -335,6 +335,7 @@ export default function RSVP() {
           >
             SUBMIT
           </button>
+          <p>If you need to adjust or remove your RSVP, reach out to RobertPakko@gmail.com</p>
         </div>
       </div>
       <Show when={showToast()}>
