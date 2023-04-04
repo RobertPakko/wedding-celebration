@@ -335,7 +335,18 @@ export default function RSVP() {
           >
             SUBMIT
           </button>
-          <p>If you need to adjust or remove your RSVP, reach out to RobertPakko@gmail.com</p>
+          <p>
+            If you need to adjust or remove your RSVP, just reach out to Rob at <a
+              class={daisy("link")({})}
+              href="mailto:RobertPakko@gmail.com"
+              onClick={(event) => {
+                window.open('mailto:mail@domain.com', 'mail');
+                event.preventDefault();
+              }}
+            >
+              RobertPakko@gmail.com
+            </a>
+          </p>
         </div>
       </div>
       <Show when={showToast()}>

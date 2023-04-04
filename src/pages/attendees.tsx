@@ -73,7 +73,7 @@ export default function Attendees() {
             <div class={daisy("avatar")({addedClass: wind({alignSelf: "self-center"}).class() })}>
               <div class={daisy("mask")({modifiers: ["squircle"], addedClass: wind({width: "w-44"}).class()})}>
                 <img
-                  src={`https://${account}-secondary.blob.core.windows.net/${blobContainer}/${person.imageRef + sasToken}`}
+                  src={`https://${account}.blob.core.windows.net/${blobContainer}/${person.imageRef + sasToken}`}
                   alt={"Picture of " + person.firstName + " " + person.lastName}
                 />
               </div>
@@ -111,6 +111,25 @@ export default function Attendees() {
           </div>
         </div>
       }</For>
+      <Show when={people().length > 0}>
+        <div class={wind({boxShadow: "shadow-xl", padding: "p-7", width: "w-80", height: "h-96"}).class() + " " + daisy("card")({"color": "bg-base-100"})}>
+          <div class={daisy("card-body")({addedClass: wind({paddingX: "px-0", paddingBottom: "pb-0", paddingTop: "pt-3"}).class()})}>
+            <h2 class={daisy("card-title")({})}>Problem with RSVP?</h2>
+            <p>
+              If you need to adjust or remove your RSVP, just reach out to Rob at <a
+                class={daisy("link")({})}
+                href="mailto:RobertPakko@gmail.com"
+                onClick={(event) => {
+                  window.open('mailto:mail@domain.com', 'mail');
+                  event.preventDefault();
+                }}
+              >
+                RobertPakko@gmail.com
+              </a>
+            </p>
+          </div>
+        </div>
+      </Show>
     </div>
   );
 }

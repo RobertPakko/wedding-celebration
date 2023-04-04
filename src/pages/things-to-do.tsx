@@ -29,18 +29,32 @@ const content: {
     link: "https://www.nwoc.com/"
   },
   {
-    imageRef: "aquarium.jpg",
-    title: "Seattle Aquarium",
+    imageRef: "hikes.jpg",
+    title: "Hikes",
     tag: "Activities",
-    description: "Beautiful aquarium located right on the waterfront.",
-    link: "https://www.seattleaquarium.org/"
+    description: "Some of the best hiking in the world is right here in the PNW. Popular hikes include Discovery Park, Rattlesnake Ledge, and Snoqualmie Falls, and but there are many others.",
+    link: "https://www.wta.org/go-outside"
   },
   {
-    imageRef: "zoo.jpg",
-    title: "Woodland Park Zoo",
+    imageRef: "pike_place_market.jpg",
+    title: "Pike Place Market",
+    tag: "Sightseeing",
+    description: "No visit to Seattle is complete without a stop at this iconic marketplace! Check out the flying fish, the first Starbucks, or any of the great vendors.",
+    link: "https://www.pikeplacemarket.org/"
+  },
+  {
+    imageRef: "mopop.jpg",
+    title: "Museum of Pop Culture (MoPOP)",
+    tag: "Museums",
+    description: "Museum at the Seattle Center dedicated to contemporary popular culture.",
+    link: "https://www.mopop.org/"
+  },
+  {
+    imageRef: "fremontMarket.jpg",
+    title: "Fremont Sunday Market",
     tag: "Activities",
-    description: "Great zoo in the park by Green Lake.",
-    link: "https://www.zoo.org/"
+    description: "Cool farmer’s market in a quirky neighborhood to check out on Sunday morning.",
+    link: "http://www.fremontmarket.com/"
   },
   {
     imageRef: "pinball.jpg",
@@ -57,13 +71,6 @@ const content: {
     link: "https://theochocolate.com/factory-tours"
   },
   {
-    imageRef: "fremontMarket.jpg",
-    title: "Fremont Sunday Market",
-    tag: "Activities",
-    description: "Cool farmer’s market in a quirky neighborhood to check out on Sunday morning.",
-    link: "http://www.fremontmarket.com/"
-  },
-  {
     imageRef: "underground.jpg",
     title: "Beneath the Streets: Underground History Tours",
     tag: "Activities",
@@ -71,67 +78,18 @@ const content: {
     link: "https://www.beneath-the-streets.com/"
   },
   {
-    imageRef: "hikes.jpg",
-    title: "Hikes",
+    imageRef: "aquarium.jpg",
+    title: "Seattle Aquarium",
     tag: "Activities",
-    description: "Some of the best hiking in the world is right here in the PNW. Popular hikes include Discovery Park, Rattlesnake Ledge, and Snoqualmie Falls, and but there are many others.",
-    link: "https://www.wta.org/go-outside"
+    description: "Beautiful aquarium located right on the waterfront.",
+    link: "https://www.seattleaquarium.org/"
   },
   {
-    imageRef: "science_center.jpg",
-    title: "Pacific Science Center",
-    tag: "Museums",
-    description: "Interactive science museum, fun for kids and adults alike!",
-    link: "https://pacificsciencecenter.org/"
-  },
-  {
-    imageRef: "art_museum.jpg",
-    title: "Seattle Art Museum",
-    tag: "Museums",
-    description: "Art museum located in downtown Seattle near Pike Place Market.",
-    link: "https://www.seattleartmuseum.org/"
-  },
-  {
-    imageRef: "chihuly_garden_and_glass.jpg",
-    title: "Chihuly Garden and Glass",
-    tag: "Museums",
-    description: "Art exhibit at the Seattle Center featuring glass sculpture works by Dale Chihuly.",
-    link: "https://www.chihulygardenandglass.com/"
-  },
-  {
-    imageRef: "mopop.jpg",
-    title: "Museum of Pop Culture (MoPOP)",
-    tag: "Museums",
-    description: "Museum at the Seattle Center dedicated to contemporary popular culture.",
-    link: "https://www.mopop.org/"
-  },
-  {
-    imageRef: "flight_museum.jpg",
-    title: "The Museum of Flight",
-    tag: "Museums",
-    description: "Air and space museum with over 175 aircraft and spacecraft to explore.",
-    link: "https://www.museumofflight.org/"
-  },
-  {
-    imageRef: "mohai.png",
-    title: "Museum of History & Industry (MOHAI)",
-    tag: "Museums",
-    description: "Museum telling Seattle’s story, from an age when Native American cultures first came into contact with Europeans to the region’s transformation into a major global hub.",
-    link: "https://mohai.org/"
-  },
-  {
-    imageRef: "pike_place_market.jpg",
-    title: "Pike Place Market",
-    tag: "Sightseeing",
-    description: "No visit to Seattle is complete without a stop at this iconic marketplace! Check out the flying fish, the first Starbucks, or any of the great vendors.",
-    link: "https://www.pikeplacemarket.org/"
-  },
-  {
-    imageRef: "space_needle.jpg",
-    title: "Space Needle",
-    tag: "Sightseeing",
-    description: "If you wanna see Seattle from up high and check this off your Seattle bucket list.",
-    link: "https://www.museumofflight.org/"
+    imageRef: "zoo.jpg",
+    title: "Woodland Park Zoo",
+    tag: "Activities",
+    description: "Great zoo in the park by Green Lake.",
+    link: "https://www.zoo.org/"
   },
   {
     imageRef: "olympic_sculpture_park.jpg",
@@ -141,11 +99,46 @@ const content: {
     link: "https://www.seattleartmuseum.org/visit/olympic-sculpture-park"
   },
   {
-    imageRef: "seattle_storm.png",
-    title: "Seattle Storm",
-    tag: "Sports",
-    description: "Women’s basketball game on Saturday, 8/5 at 7pm.",
-    link: "https://storm.wnba.com/"
+    imageRef: "science_center.jpg",
+    title: "Pacific Science Center",
+    tag: "Museums",
+    description: "Interactive science museum, fun for kids and adults alike!",
+    link: "https://pacificsciencecenter.org/"
+  },
+  {
+    imageRef: "flight_museum.jpg",
+    title: "The Museum of Flight",
+    tag: "Museums",
+    description: "Air and space museum with over 175 aircraft and spacecraft to explore.",
+    link: "https://www.museumofflight.org/"
+  },
+  {
+    imageRef: "chihuly_garden_and_glass.jpg",
+    title: "Chihuly Garden and Glass",
+    tag: "Museums",
+    description: "Art exhibit at the Seattle Center featuring glass sculpture works by Dale Chihuly.",
+    link: "https://www.chihulygardenandglass.com/"
+  },
+  {
+    imageRef: "mohai.png",
+    title: "Museum of History & Industry (MOHAI)",
+    tag: "Museums",
+    description: "Museum telling Seattle’s story, from an age when Native American cultures first came into contact with Europeans to the region’s transformation into a major global hub.",
+    link: "https://mohai.org/"
+  },
+  {
+    imageRef: "art_museum.jpg",
+    title: "Seattle Art Museum",
+    tag: "Museums",
+    description: "Art museum located in downtown Seattle near Pike Place Market.",
+    link: "https://www.seattleartmuseum.org/"
+  },
+  {
+    imageRef: "space_needle.jpg",
+    title: "Space Needle",
+    tag: "Sightseeing",
+    description: "If you wanna see Seattle from up high and check this off your Seattle bucket list.",
+    link: "https://www.museumofflight.org/"
   },
   {
     imageRef: "ol_reign.png",
@@ -155,13 +148,20 @@ const content: {
     link: "https://www.olreign.com/"
   },
   {
+    imageRef: "seattle_storm.png",
+    title: "Seattle Storm",
+    tag: "Sports",
+    description: "Women’s basketball game on Saturday, 8/5 at 7pm.",
+    link: "https://storm.wnba.com/"
+  },
+  {
     imageRef: "1776_the_musical.webp",
     title: "1776",
     tag: "Theater",
     description: "A musical by 5th Avenue Theatre.",
     link: "https://www.5thavenue.org/"
   }
-]
+];
 
 export default function ThingsToDo() {
   return (

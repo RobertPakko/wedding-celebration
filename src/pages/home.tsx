@@ -27,11 +27,11 @@ export default function Home() {
               src={`https://${account}-secondary.blob.core.windows.net/${assetContainer}/${"carkeek_park.jpg"}${sasToken}`}
             />
           </figure>
-          <div class={daisy("card-body")({addedClass: daisy("prose")({addedClass: "[&>*]:m-0"})})}>
+          <div class={daisy("card-body")({addedClass: daisy("prose")({addedClass: "[&>*]:m-0 p-6"})})}>
             <h1 class={wind({ alignSelf: "self-center" }).class()}>You're Invited!</h1>
             <div class={daisy("divider")({addedClass: wind({margin: "m-0"}).class()})}/>
             <h2>Haley and Rob's Wedding Celebration</h2>
-            <p>We married in an intimate ceremony in Michigan this winter, but we'd love for you to come celebrate with us in Seattle this summer!</p>
+            <p>We married in a small ceremony in Michigan this winter and now we’re excited to celebrate our marriage with all of our friends and family here in Seattle!</p>
             <h2>Where:</h2>
             <p>Sunday, August 6th, 2023 Noon to Evening</p>
             <h2>When:</h2>
@@ -41,7 +41,7 @@ export default function Home() {
                 <Icon icon="checkCircle"/>
                 RSVP
               </a>
-              <a class={daisy("btn")({modifiers: ["secondary"], addedClass: wind({gap: "gap-2"}).class()})} target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NG5mdWJrN3E2cjJiZ2FjdWZlNjFsb2FhcW4gcm9iZXJ0cGFra29AbQ&amp;tmsrc=robertpakko%40gmail.com">
+              <a class={daisy("btn")({modifiers: ["secondary"], addedClass: wind({gap: "gap-2"}).class()})} target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NG5mdWJrN3E2cjJiZ2FjdWZlNjFsb2FhcW4gMDk1Zjc5NmRkY2M1ZGI2MTEzZGRmMDc5ZjM4OWJmMjAzYWJkYzk1ZWM0ZTAzN2MyM2Y2YzkxZDVmZTE3ZmYwMUBn&amp;tmsrc=095f796ddcc5db6113ddf079f389bf203abdc95ec4e037c23f6c91d5fe17ff01%40group.calendar.google.com">
                 <Icon icon="calendar"/>
                 Add to Calendar
               </a>

@@ -1,5 +1,6 @@
 import { wind } from "tailwindest";
 import { daisy } from "../daisy-typed/daisy-typed";
+import { ExternalLink } from "../components/link";
 
 const account = import.meta.env.VITE_STORAGE_ACCOUNT;
 const sasToken = import.meta.env.VITE_SAS_TOKEN;
@@ -27,16 +28,16 @@ export default function TravelAndLodging() {
             <div class={daisy("divider")({addedClass: wind({margin: "m-0"}).class()})}/>
             <h2>🛬 Flying Into Seattle</h2>
             <p>Seattle’s major airport is the Seattle-Tacoma International Airport (SEA).</p>
-            <p>To get to the city from the airport, we recommend taking the 1 Line, a Light Rail Train that runs directly from the airport to downtown and beyond. The Light Rail takes about 30 minutes to run from the airport to downtown.</p>
+            <p>To get to the city from the airport, we recommend taking the <ExternalLink text="1 Line" href="https://www.soundtransit.org/ride-with-us/routes-schedules/1-line?direction=0&at=1679641200000&view=table&route_tab=schedule&stops_0=1_990005%2C1_99913&stops_1=1_99914%2C1_990006"/>, a Light Rail Train that runs directly from the airport to downtown and beyond. The Light Rail takes about 30 minutes to run from the airport to downtown.</p>
             <p>Alternatively, if you choose to rent a car or use ride share, it’s about a 20 minute drive from the airport to downtown.</p>
             <h2>🚏 Getting Around Seattle</h2>
-            <p>There are lots of ways to get around Seattle without a car, including the Light Rail, King County Buses, Seattle Streetcars, Bike & Scooter Sharing, and even the Seattle Center Monorail! More info about these options can be found here.</p>
+            <p>There are lots of ways to get around Seattle without a car, including the Light Rail, King County Buses, Seattle Streetcars, Bike & Scooter Sharing, and even the Seattle Center Monorail! More info about these options can be found <ExternalLink text="here" href="https://visitseattle.org/visitor-information/getting-around/"/>.</p>
             <h2>🏞️ Getting to Carkeek Park</h2>
             <p>Carkeek Park is in the Broadview Neighborhood of Seattle, a bit north of downtown. The easiest way to get to the park is by car (~20 minutes from downtown, plenty of parking available), or there are bus route options as well (check your Maps app for best options).</p>
             <p>Here is a diagram for where, specifically, in Carkeek the event will take place:</p>
             <img src={`https://${account}.blob.core.windows.net/${assetContainer}/CarkeekMap.png${sasToken}`} />
             <h2>🏨 Lodging</h2>
-            <p>Hotel, Airbnb, staying with a friend – all up to you! There are countless options for accommodations in Seattle. Here are some popular neighborhoods to consider:</p>
+            <p>Hotel, Airbnb, staying with a friend – all up to you! There are countless options for accommodations in Seattle. Here are some popular <ExternalLink text="neighborhoods" href="https://www.themadronagroup.com/seattle-neighborhood-map-with-boundaries-and-local-information/"/> to consider:</p>
             <ul>
               <li>Belltown (close to Pike Place Market and Seattle Center)</li>
               <li>Fremont (fun, quirky neighborhood featuring its namesake Troll)</li>

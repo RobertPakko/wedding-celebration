@@ -1,4 +1,4 @@
-// Note, there are more color prefixes
+// Todo: there are more color prefixes
 type DaisyColorPrefixes = "bg" | "text";
 type DaisyColors = "primary"
     | "primary-focus"
@@ -200,6 +200,9 @@ const DaisyComponents = {
   "avatar-group": {},
   "mask": {
     squircle: "mask-squircle"
+  },
+  "link": {
+    // TODO: Add modifiers
   }
 }
 
