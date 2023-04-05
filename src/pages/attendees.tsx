@@ -84,11 +84,7 @@ export default function Attendees() {
                 addedClass: wind({width: "w-44"
               }).class()})}>
                 <span class={daisy("")({color: "text-neutral", addedClass: wind({fontSize: "text-3xl"}).class()})}>
-                  {
-                    person.firstName ? person.firstName[0] : ""
-                    + " "
-                    + person.lastName ? person.lastName[0] : ""
-                  }
+                  {(person.firstName ? person.firstName[0] : "") + " " + (person.lastName ? person.lastName[0] : "")}
                 </span>
               </div>
             </div>
