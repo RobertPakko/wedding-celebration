@@ -32,9 +32,9 @@ export default function Home() {
             <div class={daisy("divider")({addedClass: wind({margin: "m-0"}).class()})}/>
             <h2>Haley and Rob's Wedding Celebration</h2>
             <p>We married in a small ceremony in Michigan this winter and now we’re excited to celebrate our marriage with all of our friends and family here in Seattle!</p>
-            <h2>Where:</h2>
-            <p>Sunday, August 6th, 2023 Noon to Evening</p>
             <h2>When:</h2>
+            <p>Sunday, August 6th, 2023 Noon to Evening</p>
+            <h2>Where:</h2>
             <p>Carkeek Park<br/>950 NW Carkeek Park Rd<br/>Seattle, WA 98177</p>
             <div class={daisy("card-actions")({addedClass: wind({justifyContent: "justify-end", gap: "gap-5"}).class()})}>
               <a href={RSVPRef} class={daisy("btn")({modifiers: ["primary"], addedClass: wind({gap: "gap-2"}).class()})}>
