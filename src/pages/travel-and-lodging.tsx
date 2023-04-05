@@ -10,16 +10,13 @@ export default function TravelAndLodging() {
   return (
     <div class={wind({
       display: "flex",
-      paddingTop: "pt-16",
+      paddingY: "py-16",
       flexDirection: "flex-col",
       minHeight: "min-h-screen",
       alignItems: "items-center",
       backgroundImage: "bg-gradient-to-r",
       backgroundImageGradientStart: "from-cyan-500",
-      backgroundImageGradientEnd: "to-blue-500",
-      "@lg": {
-        paddingBottom: "lg:pb-16"
-      }
+      backgroundImageGradientEnd: "to-blue-500"
     }).class()}>
       <div class={daisy("card")({color: "bg-base-100", addedClass: wind({boxShadow: "shadow-xl"}).class()})}>
         <div class={daisy("card-body")({})}>

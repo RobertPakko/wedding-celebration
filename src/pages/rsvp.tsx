@@ -150,14 +150,11 @@ export default function RSVP() {
       display: "flex",
       flexDirection: "flex-col",
       minHeight: "min-h-screen",
-      paddingTop: "pt-16",
+      paddingY: "py-16",
       alignItems: "items-center",
       backgroundImage: "bg-gradient-to-r",
       backgroundImageGradientStart: "from-emerald-500",
-      backgroundImageGradientEnd: "to-pink-500",
-      "@lg": {
-        paddingBottom: "lg:pb-16"
-      }
+      backgroundImageGradientEnd: "to-pink-500"
     }).class()}>
       <div class={daisy("card")({addedClass: wind({boxShadow: "shadow-xl", maxWidth: "max-w-[100%]"}).class(), color: "bg-base-100"})}>
         <div class={daisy("card-body")({addedClass: wind({
@@ -170,7 +167,7 @@ export default function RSVP() {
             <h1 class={wind({textAlign: "text-center"}).class()}>RSVP</h1>
             <div class={daisy("divider")({addedClass: wind({margin: "m-0"}).class()})}/>
           </article>
-          <div class={wind({display: "flex", flexWrap: "flex-wrap", gap: "gap-10"}).class()}>
+          <div class={wind({display: "flex", flexWrap: "flex-wrap", gap: "gap-10", justifyContent: "justify-evenly"}).class()}>
             <input
               type="text"
               placeholder="First Name"
@@ -193,7 +190,7 @@ export default function RSVP() {
               class={daisy("input")({modifiers: ["bordered"]})}
             />
           </div>
-          <div class={wind({display: "flex", flexWrap: "flex-wrap", gap: "gap-10"}).class()}>
+          <div class={wind({display: "flex", flexWrap: "flex-wrap", gap: "gap-10", justifyContent: "justify-evenly"}).class()}>
             <label class={daisy("label")({})}>
               <span class={daisy("label-text")({addedClass: wind({
                 fontWeight: "font-bold",
@@ -335,7 +332,7 @@ export default function RSVP() {
           >
             SUBMIT
           </button>
-          <p>
+          <p class={wind({textAlign: "text-center"}).class()}>
             If you need to adjust or remove your RSVP, just reach out to Rob at <a
               class={daisy("link")({})}
               href="mailto:RobertPakko@gmail.com"

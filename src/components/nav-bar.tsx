@@ -24,7 +24,7 @@ export const NavBarComponent: Component = () => {
         <Show when={window.location.pathname === HomeRef}>
           <div>
             <button class={headerButtonClass}>
-              <a href="https://github.com/RobertPakko/wedding-celebration" target="_blank"><Icon icon="diamondStack"/></a>
+              <a href="https://github.com/RobertPakko/wedding-celebration" target="_blank"><Icon icon="code"/></a>
             </button>
           </div>
         </Show>

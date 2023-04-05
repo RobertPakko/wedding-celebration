@@ -169,15 +169,12 @@ export default function ThingsToDo() {
       display: "flex",
       flexWrap: "flex-wrap",
       justifyContent: "justify-evenly",
-      paddingTop: "pt-16",
+      paddingY: "py-16",
       gap: "gap-10",
       minHeight: "min-h-screen",
       backgroundImage: "bg-gradient-to-r",
       backgroundImageGradientStart: "from-yellow-500",
-      backgroundImageGradientEnd: "to-emerald-500",
-      "@lg": {
-        padding: "lg:p-16"
-      }
+      backgroundImageGradientEnd: "to-emerald-500"
     }).class()}>
       <For each={content}>{(thing) =>
         <div class={daisy("card")({addedClass: wind({boxShadow: "shadow-xl", maxHeight: "max-h-[500px]", maxWidth: "max-w-prose"}).class(), color: "bg-base-100"})}>

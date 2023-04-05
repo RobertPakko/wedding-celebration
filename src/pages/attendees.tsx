@@ -57,15 +57,12 @@ export default function Attendees() {
       display: "flex",
       flexWrap: "flex-wrap",
       justifyContent: "justify-evenly",
-      paddingTop: "pt-16",
+      paddingY: "py-16",
       gap: "gap-10",
       minHeight: "min-h-screen",
       backgroundImage: "bg-gradient-to-r",
       backgroundImageGradientStart: "from-violet-500",
-      backgroundImageGradientEnd: "to-cyan-500",
-      "@lg": {
-        padding: "lg:p-16"
-      }
+      backgroundImageGradientEnd: "to-cyan-500"
     }).class()}>
       <For each={people()}>{(person) =>
         <div class={wind({boxShadow: "shadow-xl", padding: "p-7", width: "w-80", height: "h-96"}).class() + " " + getCardStyle(person.cardColor)}>

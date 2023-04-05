@@ -6,16 +6,13 @@ export default function Registry() {
   return (
     <div class={wind({
       display: "flex",
-      paddingTop: "pt-16",
+      paddingY: "py-16",
       flexDirection: "flex-col",
       minHeight: "min-h-screen",
       alignItems: "items-center",
       backgroundImage: "bg-gradient-to-r",
       backgroundImageGradientStart: "from-pink-500",
-      backgroundImageGradientEnd: "to-yellow-500",
-      "@lg": {
-        paddingBottom: "lg:pb-16"
-      }
+      backgroundImageGradientEnd: "to-yellow-500"
     }).class()}>
       <div class={daisy("card")({addedClass: wind({boxShadow: "shadow-xl"}).class(), color: "bg-base-100"})}>
         <div class={daisy("card-body")({})}>

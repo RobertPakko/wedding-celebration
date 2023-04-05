@@ -41,7 +41,13 @@ export default function Home() {
                 <Icon icon="checkCircle"/>
                 RSVP
               </a>
-              <a class={daisy("btn")({modifiers: ["secondary"], addedClass: wind({gap: "gap-2"}).class()})} target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NG5mdWJrN3E2cjJiZ2FjdWZlNjFsb2FhcW4gMDk1Zjc5NmRkY2M1ZGI2MTEzZGRmMDc5ZjM4OWJmMjAzYWJkYzk1ZWM0ZTAzN2MyM2Y2YzkxZDVmZTE3ZmYwMUBn&amp;tmsrc=095f796ddcc5db6113ddf079f389bf203abdc95ec4e037c23f6c91d5fe17ff01%40group.calendar.google.com">
+              <a
+                class={daisy("btn")({modifiers: ["secondary"], addedClass: wind({gap: "gap-2"}).class()})}
+                title="Add to Calendar"
+                data-id="hS16637682"
+                href="https://www.addevent.com/event/hS16637682"
+                target="_blank"
+              >
                 <Icon icon="calendar"/>
                 Add to Calendar
               </a>
