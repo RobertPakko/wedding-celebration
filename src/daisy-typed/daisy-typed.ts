@@ -1,5 +1,6 @@
 // Todo: there are more color prefixes
 type DaisyColorPrefixes = "bg" | "text";
+
 type DaisyColors = "primary"
     | "primary-focus"
     | "primary-content"
