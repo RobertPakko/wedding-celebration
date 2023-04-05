@@ -316,7 +316,7 @@ export default function RSVP() {
               </div>
               <textarea
                 class={daisy("textarea")({modifiers: ["bordered", "large"], addedClass: wind({width: "w-full", minHeight: "min-h-[140px]"}).class()})}
-                placeholder="Tell us how you know Haley & Rob! (or who you’re attending with)"
+                placeholder="Tell us how you know Haley & Rob!"
                 value={data().blurb}
                 onChange={updateFormField("blurb")}
               />
