@@ -65,7 +65,7 @@ export default function Attendees() {
       backgroundImageGradientEnd: "to-cyan-500"
     }).class()}>
       <For each={people()}>{(person) =>
-        <div class={wind({boxShadow: "shadow-xl", padding: "p-7", width: "w-80", height: "h-96"}).class() + " " + getCardStyle(person.cardColor)}>
+        <div class={wind({boxShadow: "shadow-xl", padding: "p-6", width: "w-64", height: "h-96"}).class() + " " + getCardStyle(person.cardColor)}>
           <Show when={person.imageRef !== ""}>
             <div class={daisy("avatar")({addedClass: wind({alignSelf: "self-center"}).class() })}>
               <div class={daisy("mask")({modifiers: ["squircle"], addedClass: wind({width: "w-44"}).class()})}>
@@ -109,7 +109,7 @@ export default function Attendees() {
         </div>
       }</For>
       <Show when={people().length > 0}>
-        <div class={wind({boxShadow: "shadow-xl", padding: "p-7", width: "w-80", height: "h-96"}).class() + " " + daisy("card")({"color": "bg-base-100"})}>
+        <div class={wind({boxShadow: "shadow-xl", padding: "p-6", width: "w-64", height: "h-96"}).class() + " " + daisy("card")({"color": "bg-base-100"})}>
           <div class={daisy("card-body")({addedClass: wind({paddingX: "px-0", paddingBottom: "pb-0", paddingTop: "pt-3"}).class()})}>
             <h2 class={daisy("card-title")({})}>Problem with RSVP?</h2>
             <p>
