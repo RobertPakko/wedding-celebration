@@ -26,8 +26,6 @@
     "@azure/storage-blob": "^12.13.0",
     "@solidjs/router": "^0.8.0",
     "daisyui": "^2.51.4",
-    "resize-observer-polyfill": "^1.5.1",
-    "simplebar": "^6.2.4",
     "solid-js": "^1.6.10",
     "tailwindest": "^1.0.5"
   }
