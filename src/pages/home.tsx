@@ -7,7 +7,7 @@ const account = import.meta.env.VITE_STORAGE_ACCOUNT;
 const sasToken = import.meta.env.VITE_SAS_TOKEN;
 const assetContainer = import.meta.env.VITE_ASSET_CONTAINER;
 
-const imageUrl = `https://${account}-secondary.blob.core.windows.net/${assetContainer}/Seattle.jpg${sasToken}`
+const imageUrl = `https://${account}.blob.core.windows.net/${assetContainer}/Seattle.jpg${sasToken}`
 
 export default function Home() {
   return (
@@ -24,7 +24,7 @@ export default function Home() {
         <div class={daisy("card")({color: "bg-base-100", addedClass: "lg:card-side " + wind({boxShadow: "shadow-xl"}).class()})}>
           <figure class={wind({maxWidth: "max-w-screen-md"}).class()}>
             <img
-              src={`https://${account}-secondary.blob.core.windows.net/${assetContainer}/${"carkeek_park.jpg"}${sasToken}`}
+              src={`https://${account}.blob.core.windows.net/${assetContainer}/${"carkeek_park.jpg"}${sasToken}`}
             />
           </figure>
           <div class={daisy("card-body")({addedClass: daisy("prose")({addedClass: "[&>*]:m-0 p-6"})})}>

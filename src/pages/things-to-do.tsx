@@ -179,7 +179,7 @@ export default function ThingsToDo() {
       <For each={content}>{(thing) =>
         <div class={daisy("card")({addedClass: wind({boxShadow: "shadow-xl", maxHeight: "max-h-[500px]", maxWidth: "max-w-prose"}).class(), color: "bg-base-100"})}>
           <figure>
-            <img src={`https://${account}-secondary.blob.core.windows.net/${assetContainer}/${thing.imageRef}${sasToken}`}/>
+            <img src={`https://${account}.blob.core.windows.net/${assetContainer}/${thing.imageRef}${sasToken}`}/>
           </figure>
           <div class={daisy("card-body")({addedClass: daisy("prose")({})})}>
             <h2 class={daisy("card-title")({addedClass: wind({margin: "m-0"}).class()})}>
