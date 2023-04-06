@@ -1,3 +1,9 @@
+// Styles to override scrollbar
+import SimpleBar from 'simplebar';
+import 'simplebar/dist/simplebar.css';
+import ResizeObserver from 'resize-observer-polyfill';
+window.ResizeObserver = ResizeObserver;
+
 import { AzureSASCredential, TableClient } from "@azure/data-tables";
 import { createSignal, For, onMount, Show } from "solid-js";
 import { CardColor } from "./rsvp";
@@ -92,7 +98,7 @@ export default function Attendees() {
           <div class={daisy("card-body")({addedClass: wind({paddingX: "px-0", paddingBottom: "pb-0", paddingTop: "pt-3"}).class()})}>
             <h2 class={daisy("card-title")({addedClass: wind({alignSelf: "self-center"}).class()})}>{person.firstName + " " + person.lastName}</h2>
             <Show when={person.blurb !== ""}>
-              <p class={daisy("")({color: "text-base-content", addedClass: daisy("")({color: "bg-base-100", addedClass: wind({
+              <p data-simplebar class={daisy("")({color: "text-base-content", addedClass: daisy("")({color: "bg-base-100", addedClass: wind({
                 overflow: "overflow-y-auto",
                 height: "h-28",
                 borderRadius: "rounded-md",
