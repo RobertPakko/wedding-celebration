@@ -40,15 +40,13 @@ export default function Attendees() {
       tempArr.push(person as unknown as Person);
     }
 
-    tempArr.sort((a, b): number => {
+    tempArr.sort((a): number => {
       if(a.imageRef !== "") {
         return -1;
-      } else if(b.imageRef !== "") {
-        return 1;
       } else if(a.blurb !== "") {
         return -1;
       } else {
-        return 1;
+        return 0;
       }
     });
 
