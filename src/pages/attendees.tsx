@@ -42,13 +42,13 @@ export default function Attendees() {
     }
 
     tempArr.sort((a, b): number => {
-      if(a.imageRef !== "") {
+      if(a.imageRef !== "" && b.imageRef === "") {
         return -1;
-      } else if(b.imageRef !== "") {
+      } else if(a.imageRef === "" && b.imageRef !== "") {
         return 1;
-      } else if(a.blurb !== "") {
+      } else if(a.blurb !== "" && b.blurb === "") {
         return -1;
-      } else if(b.blurb !== "") {
+      } else if(a.blurb === "" && b.blurb !== "") {
         return 1;
       } else {
         return a.rowkey - b.rowkey;
