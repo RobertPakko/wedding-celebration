@@ -35,9 +35,22 @@ export default function Attendees() {
     });
 
     const tempArr: Person[] = [];
+
     for await (const person of attendees) {
       tempArr.push(person as unknown as Person);
     }
+
+    tempArr.sort((a, b): number => {
+      if(a.imageRef !== "") {
+        return -1;
+      } else if(b.imageRef !== "") {
+        return 1;
+      } else if(a.blurb !== "") {
+        return -1;
+      } else {
+        return 1;
+      }
+    });
 
     setPeople(tempArr);
   });
@@ -90,7 +103,7 @@ export default function Attendees() {
             </div>
           </Show>
           <div class={daisy("card-body")({addedClass: wind({paddingX: "px-0", paddingBottom: "pb-0", paddingTop: "pt-3"}).class()})}>
-            <h2 class={daisy("card-title")({addedClass: wind({alignSelf: "self-center"}).class()})}>{person.firstName + " " + person.lastName}</h2>
+            <h2 class={daisy("card-title")({addedClass: wind({alignSelf: "self-center"}).class()}) + " whitespace-nowrap"}>{person.firstName + " " + person.lastName}</h2>
             <Show when={person.blurb !== ""}>
               <p class={daisy("")({color: "text-base-content", addedClass: daisy("")({color: "bg-base-100", addedClass: wind({
                 overflow: "overflow-y-auto",
