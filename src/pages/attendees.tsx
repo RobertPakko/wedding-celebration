@@ -15,6 +15,7 @@ export interface Person {
   cardColor: CardColor
   lastName: string
   blurb: string
+  rowkey: number
 }
 
 export default function Attendees() {
@@ -29,7 +30,7 @@ export default function Attendees() {
   onMount(async () => {
     const attendees = tableClient.listEntities({
       queryOptions: {
-        select: ["firstName", "lastName", "blurb", "cardColor", "imageRef"],
+        select: ["firstName", "lastName", "blurb", "cardColor", "imageRef", "rowkey"],
         filter: "addToAttendees eq true and ableToAttend eq true"
       }
     });
@@ -50,7 +51,7 @@ export default function Attendees() {
       } else if(b.blurb !== "") {
         return 1;
       } else {
-        return 0;
+        return a.rowkey - b.rowkey;
       }
     });
 
