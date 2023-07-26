@@ -23,6 +23,7 @@ export default function Registry() {
             <h2>🎓 Contribute to our future family’s education fund</h2>
             <p>It’s never too early to start saving for college! Okay, maybe some would argue that this is a bit early, but the earlier we start saving, the more the funds can grow (tax-free!). We’ve created a <ExternalLink text="Washington 529 “GET” prepaid tuition plan" href="https://wastate529.wa.gov/howgetworks"/> that allows us (and family and friends like you) to purchase “units” of tuition at today’s price to be used in the future. The GET account is currently in our name, but the beneficiary can be easily switched to a new child once they have a SSN.</p>
             <p>GET Account: <strong>22001963</strong></p>
+            <p>Beneficiary Name: <strong>Haley Clafton</strong></p>
             <p><ExternalLink text="Instructions on how to make a gift can be found here." href="https://wastate529.wa.gov/give-a-gift-get#:~:text=Family%20and%20Friend%20Gift%20Contributions"/></p>
             <h2>⛱️ Contribute to our belated honeymoon fund</h2>
             <p>Life has been crazy since the winter wedding, so we haven’t had a chance for a honeymoon vacation yet! We plan to go on one this fall though. If you'd like to buy us a vacation dinner, you can contribute using <ExternalLink text="Venmo" href="https://account.venmo.com/u/Robert-Pakko"/>.</p>
