@@ -1,5 +1,5 @@
 import { Component } from "solid-js";
-import { AttendeesRef, ChickensRef, drawerId, FAQRef, HomeRef, PhotoUploadRef, RegistryRef, RSVPRef, ThingsToDoRef, TravelAndLodgingRef } from "../App";
+import { AttendeesRef, drawerId, FAQRef, HomeRef, PhotoUploadRef, RegistryRef, RSVPRef, ThingsToDoRef, TravelAndLodgingRef } from "../App";
 import { Icon } from "./icon";
 import { daisy } from "../daisy-typed/daisy-typed";
 import { wind } from "tailwindest";
@@ -27,7 +27,6 @@ export const NavPanel: Component = () => {
         <li class={getStyle(FAQRef)}><a {...getRef(FAQRef)}><Icon icon="chatBubble"/>FAQ</a></li>
         <li class={getStyle(RegistryRef)}><a {...getRef(RegistryRef)}><Icon icon="gift"/>Registry</a></li>
         <li class={getStyle(PhotoUploadRef)}><a {...getRef(PhotoUploadRef)}><Icon icon="photo"/>Photo Upload</a></li>
-        <li class={getStyle(ChickensRef)}><a {...getRef(ChickensRef)}><Icon icon="videoCamera"/>Chickens</a></li>
       </ul>
     </>
   );
